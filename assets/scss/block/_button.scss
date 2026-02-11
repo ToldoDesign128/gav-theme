@@ -1,0 +1,22 @@
+// Header
+
+@use "/assets/scss/variable/variable" as v;
+
+.primary-btn{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 1px solid v.$black;
+    transition: all .6s cubic-bezier(.215, .61, .355, 1);
+
+    @include v.respond-to(lg){
+        &:hover{
+            color: v.$fucsia-300;
+            border-color: v.$fucsia-300;
+        }
+    }
+}

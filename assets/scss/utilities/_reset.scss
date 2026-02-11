@@ -1,0 +1,63 @@
+@use '/assets/scss/variable/variable' as v;
+
+/* Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Rimuove margini */
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Imposta altezza e larghezza al 100% per il body */
+html, body {
+  width: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  background-color: #fcfcfc;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Rimuove padding per liste */
+ul, ol{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Azzera margini per immagini */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Imposta una linea di base coerente */
+body {
+  color: v.$black;
+  height: 100%;
+  line-height: 1.5;
+  font-family: v.$primary-font;
+  font-size: clamp(14px, 10px + 1vw, 16px);
+}
+button { all: unset; }
+
+/* Link senza decorazioni */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.placeholder{
+  min-height: 100vh;
+}

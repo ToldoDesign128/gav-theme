@@ -1,0 +1,27 @@
+/*!
+Theme Name: Grazie alla Vita
+Theme URI: https://www.grazieallavita.it/
+Author: Federico Toldo & TAG ( Trentino Alta Formazione Grafica )
+Author URI: https://federicotoldo.com/ https://www.tag.tn.it/
+Description: Custom theme for Grazie alla Vita
+Tags: blog, accessibility-ready, grid-layout, custom-header, custom-menu, flexible-header, block-styles
+Version: 1.0
+Requires at least: 6.4.3
+Tested up to: 6.4.3
+Requires PHP: 7.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: gav-theme
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+// Utilities
+@use '/assets/scss/utilities/reset' as reset;
+@use '/assets/scss/utilities/layout' as layout;
+
+// Block
+@use '/assets/scss/block/block' as block;
+
+// Page
+@use '/assets/scss/page/page' as page;

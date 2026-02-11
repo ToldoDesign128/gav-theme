@@ -1,0 +1,28 @@
+// Layout
+
+@use '/assets/scss/variable/variable' as v;
+
+.container {
+    margin: 0 auto;
+    max-width: 640px;
+
+    @include v.respond-to(md) {
+        max-width: 768px;
+    }
+
+    @include v.respond-to(lg) {
+        max-width: 984px;
+    }
+
+    @include v.respond-to(xl) {
+        max-width: 1220px;
+    }
+
+    @include v.respond-to(xxl) {
+        max-width: 1456px;
+    }
+
+    @include v.respond-to(big) {
+        max-width: 1640px;
+    }
+}

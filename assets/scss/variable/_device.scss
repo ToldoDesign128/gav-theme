@@ -1,0 +1,28 @@
+// Device screen
+
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1536px;
+$big: 1920px;
+$only-mobile: 1024px;
+
+// Mixin per media query
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: #{$sm}) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: #{$md}) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: #{$lg}) { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: #{$xl}) { @content; }
+  } @else if $breakpoint == xxl {
+    @media (min-width: #{$xxl}) { @content; }
+  } @else if $breakpoint == big {
+    @media (min-width: #{$big}) { @content; }
+  } @else if $breakpoint == only-mobile {
+    @media (max-width: #{$only-mobile}) { @content; }
+  }
+}

@@ -1,0 +1,402 @@
+// Block Export
+
+@use "/assets/scss/variable/variable" as v;
+
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  @include v.respond-to(lg) {
+    gap: 20px;
+  }
+
+  &__wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 20px 20px 20px;
+
+    @include v.respond-to(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 60px 0 30px 0;
+    }
+    @include v.respond-to(xl) {
+      padding: 100px 0 30px 0;
+    }
+
+    &__sitemap {
+      width: 100%;
+
+      @include v.respond-to(lg) {
+        width: 15%;
+      }
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        li {
+          color: v.$black;
+          font-size: clamp(16px, 12px + 1vw, 18px);
+          font-weight: 500;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          @include v.respond-to(lg) {
+            &:hover {
+              color: v.$gray;
+            }
+          }
+        }
+      }
+    }
+
+    &__adress {
+      width: 100%;
+      font-size: clamp(14px, 10px + 1vw, 16px);
+      color: v.$dark-gray;
+
+      @include v.respond-to(lg) {
+        width: 30%;
+      }
+    }
+    &__form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @include v.respond-to(lg) {
+        width: 50%;
+      }
+
+      &__title {
+        font-size: clamp(22px, 18px + 1vw, 28px);
+        font-weight: 700;
+      }
+
+      .wpcf7 {
+        .wpcf7-form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          @include v.respond-to(lg) {
+            width: 90%;
+          }
+          @include v.respond-to(xl) {
+            width: 80%;
+          }
+
+          p {
+            label {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+              font-family: v.$primary-font;
+              font-size: clamp(12px, 8px + 1vw, 16px);
+            }
+            .wpcf7-form-control-wrap {
+              input,
+              textarea {
+                width: 100%;
+                display: block;
+                background-color: v.$white;
+                border-radius: 10px;
+                padding: 20px;
+                border: none;
+                outline: none;
+              }
+            }
+            .wpcf7-list-item {
+              label {
+                width: 100%;
+                flex-direction: row;
+                align-items: center;
+                gap: 0.5rem;
+
+                input,
+                .wpcf7-list-item-label {
+                  width: fit-content;
+
+                  a {
+                    text-decoration: underline;
+                    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+                    @include v.respond-to(lg) {
+                      &:hover {
+                        color: v.$gray;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .wpcf7-submit {
+              cursor: pointer;
+              width: fit-content;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 10px 24px;
+              font-family: v.$primary-font;
+              font-size: clamp(14px, 10px + 1vw, 16px);
+              background-color: rgba(255, 255, 255, 0.4);
+              border-radius: 10px;
+              background-color: transparent;
+              border: 1px solid;
+              transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__credits {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+    @include v.respond-to(lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 40px 0;
+    }
+
+    &__social {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      @include v.respond-to(lg) {
+        width: fit-content;
+      }
+
+      &__item {
+        svg {
+          opacity: 1;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        @include v.respond-to(lg) {
+          &:hover {
+            svg {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @include v.respond-to(lg) {
+        align-items: center;
+        justify-content: center;
+      }
+
+      &__links {
+        display: flex;
+        gap: 10px;
+
+        @include v.respond-to(lg) {
+          align-items: center;
+        }
+
+        &__item {
+          color: v.$dark-gray;
+          text-decoration: underline;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          &:after {
+            content: "|";
+            color: v.$dark-gray;
+            margin-left: 10px;
+          }
+
+          &:last-child {
+            &:after {
+              content: "";
+            }
+          }
+
+          @include v.respond-to(lg) {
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+      &__copyright {
+        color: v.$dark-gray;
+        font-size: clamp(14px, 10px + 1vw, 16px);
+      }
+    }
+    .spacer {
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+
+      @include v.respond-to(lg) {
+        display: block;
+      }
+    }
+  }
+}
+
+.theme-blue {
+  .footer {
+    background-color: v.$blue-100;
+
+    &__wrap {
+      &__form {
+        .wpcf7 {
+          .wpcf7-form {
+            p {
+              .wpcf7-submit {
+                color: v.$blue-300 !important;
+                border-color: v.$blue-300 !important;
+
+                @include v.respond-to(lg) {
+                  &:hover {
+                    color: v.$white !important;
+                    background-color: v.$blue-300 !important;
+                    border-color: v.$white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-fucsia {
+  .footer {
+    background-color: v.$fucsia-200;
+
+    &__wrap {
+      &__form {
+        .wpcf7 {
+          .wpcf7-form {
+            p {
+              .wpcf7-submit {
+                color: v.$fucsia-300 !important;
+                border-color: v.$fucsia-300 !important;
+
+                @include v.respond-to(lg) {
+                  &:hover {
+                    color: v.$white !important;
+                    background-color: v.$fucsia-300 !important;
+                    border-color: v.$white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-verde {
+  .footer {
+    background-color: v.$verde-200;
+
+    &__wrap {
+      &__form {
+        .wpcf7 {
+          .wpcf7-form {
+            p {
+              .wpcf7-submit {
+                color: v.$verde-300 !important;
+                border-color: v.$verde-300 !important;
+
+                @include v.respond-to(lg) {
+                  &:hover {
+                    color: v.$white !important;
+                    background-color: v.$verde-300 !important;
+                    border-color: v.$white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-giallo {
+  .footer {
+    background-color: v.$giallo-200;
+
+    &__wrap {
+      &__form {
+        .wpcf7 {
+          .wpcf7-form {
+            p {
+              .wpcf7-submit {
+                color: v.$giallo-300 !important;
+                border-color: v.$giallo-300 !important;
+
+                @include v.respond-to(lg) {
+                  &:hover {
+                    color: v.$white !important;
+                    background-color: v.$giallo-300 !important;
+                    border-color: v.$white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-azzurro {
+  .footer {
+    background-color: v.$azzurro-200;
+
+    &__wrap {
+      &__form {
+        .wpcf7 {
+          .wpcf7-form {
+            p {
+              .wpcf7-submit {
+                color: v.$azzurro-300 !important;
+                border-color: v.$azzurro-300 !important;
+
+                @include v.respond-to(lg) {
+                  &:hover {
+                    color: v.$white !important;
+                    background-color: v.$azzurro-300 !important;
+                    border-color: v.$white !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

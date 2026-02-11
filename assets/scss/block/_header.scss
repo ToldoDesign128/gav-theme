@@ -1,0 +1,232 @@
+// Header
+
+@use "/assets/scss/variable/variable" as v;
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: v.$white;
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+
+    @include v.respond-to(lg) {
+      padding: 20px 0;
+    }
+
+    &__logo {
+      display: block;
+      max-width: 100px;
+      transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      @include v.respond-to(lg) {
+        max-width: 130px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &__nav {
+      display: none;
+
+      @include v.respond-to(lg) {
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+
+        @include v.respond-to(xl) {
+          gap: 60px;
+        }
+        @include v.respond-to(xxl) {
+          gap: 70px;
+        }
+
+        li {
+          color: v.$black;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          @include v.respond-to(lg) {
+            &:hover {
+              color: v.$fucsia-300;
+            }
+          }
+        }
+      }
+    }
+
+    &__search {
+      display: none;
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        path {
+          fill: v.$black;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+      }
+
+      @include v.respond-to(lg) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          svg {
+            path {
+              fill: v.$fucsia-300;
+            }
+          }
+        }
+      }
+    }
+
+    &__cta {
+      display: none;
+
+      @include v.respond-to(lg) {
+        display: flex;
+      }
+    }
+
+    #hamburgerBtn {
+      height: 1rem;
+      width: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      @include v.respond-to(xl) {
+        display: none;
+      }
+
+      span {
+        position: absolute;
+        display: block;
+        background-color: v.$black;
+        width: 24px;
+        height: 2px;
+        border-radius: 2px;
+        transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        &:first-child {
+          top: 0;
+        }
+        &:nth-child(2) {
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+        &:last-child {
+          bottom: 0;
+        }
+      }
+    }
+
+    .hamburger-active {
+      height: auto !important;
+
+      span {
+        &:first-child {
+          top: 50%;
+          -webkit-transform: rotate(135deg);
+          -moz-transform: rotate(135deg);
+          -o-transform: rotate(135deg);
+          transform: rotate(135deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+          left: -2rem;
+        }
+        &:last-child {
+          top: 50%;
+          bottom: auto;
+          -webkit-transform: rotate(-135deg);
+          -moz-transform: rotate(-135deg);
+          -o-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+
+  &__mobile {
+    width: 100%;
+    max-height: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    overflow: hidden;
+    padding: 0px 20px;
+    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    &__nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        li {
+          color: v.$black;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          &:hover {
+            color: v.$fucsia-300;
+          }
+        }
+      }
+    }
+
+    &__search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        path {
+          fill: v.$black;
+        }
+      }
+    }
+  }
+
+  .mobile-menu-active {
+    max-height: 500px;
+    padding: 20px;
+    border-top: 1px solid v.$gray;
+  }
+}
