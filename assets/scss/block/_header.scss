@@ -16,7 +16,7 @@
     justify-content: space-between;
     padding: 20px;
 
-    @include v.respond-to(lg) {
+    @include v.respond-to(xl) {
       padding: 20px 0;
     }
 
@@ -31,7 +31,7 @@
         height: auto;
       }
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         max-width: 130px;
 
         &:hover {
@@ -43,7 +43,7 @@
     &__nav {
       display: none;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         display: block;
       }
 
@@ -65,7 +65,7 @@
           color: v.$black;
           transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 
-          @include v.respond-to(lg) {
+          @include v.respond-to(xl) {
             &:hover {
               color: v.$fucsia-300;
             }
@@ -87,7 +87,7 @@
         }
       }
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -105,7 +105,7 @@
     &__cta {
       display: none;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         display: flex;
       }
     }

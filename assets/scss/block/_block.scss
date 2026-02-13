@@ -2,6 +2,8 @@
 
 @use "/assets/scss/variable/variable" as v;
 
+@forward "breadcrumbs";
 @forward "button";
 @forward "footer";
 @forward "header";
+@forward "hero";

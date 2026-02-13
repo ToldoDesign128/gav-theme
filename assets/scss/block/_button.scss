@@ -13,7 +13,7 @@
     border: 1px solid v.$black;
     transition: all .6s cubic-bezier(.215, .61, .355, 1);
 
-    @include v.respond-to(lg){
+    @include v.respond-to(xl){
         &:hover{
             color: v.$fucsia-300;
             border-color: v.$fucsia-300;

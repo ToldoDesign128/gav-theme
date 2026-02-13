@@ -1,0 +1,26 @@
+// Front Page Styles
+
+@use "/assets/scss/variable/variable" as v;
+
+.front-page {
+  width: 100%;
+  height: auto;
+  padding: 90px 0;
+
+  @include v.respond-to(xl) {
+    padding: 110px 0;
+  }
+  @include v.respond-to(xxl) {
+    padding: 120px 0;
+  }
+
+  .hero {
+    &__wrap {
+      &__content {
+        &__title {
+          color: v.$blue-300;
+        }
+      }
+    }
+  }
+}

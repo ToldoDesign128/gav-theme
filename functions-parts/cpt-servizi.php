@@ -32,7 +32,7 @@ function servizi()
                 'slug'              =>          'servizi',
                 'with-front'        =>          false,
             ),
-            'has_archive'           =>          false,
+            'has_archive'           =>          true,
             'taxonomies'            =>          array(''),
             'capability_type'       =>          'post',
             'hierarchical'          =>          false,

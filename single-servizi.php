@@ -9,6 +9,13 @@ get_header(); ?>
 
         <section class="placeholder">
         </section>
+
+        <?php get_template_part('template-parts/breadcrumbs'); ?>
+
+        <section class="hero">
+
+        </section>
+
         <section class="placeholder">
         </section>
 

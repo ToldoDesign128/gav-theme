@@ -1,3 +1,6 @@
 // Export Pages
 
 @use "/assets/scss/variable/variable" as v;
+
+@forward "about";
+@forward "front-page";

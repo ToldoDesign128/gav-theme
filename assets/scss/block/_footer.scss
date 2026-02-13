@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
 
-  @include v.respond-to(lg) {
+  @include v.respond-to(xl) {
     gap: 20px;
   }
 
@@ -17,19 +17,16 @@
     gap: 40px;
     padding: 40px 20px 20px 20px;
 
-    @include v.respond-to(lg) {
+    @include v.respond-to(xl) {
       flex-direction: row;
       justify-content: space-between;
-      padding: 60px 0 30px 0;
-    }
-    @include v.respond-to(xl) {
       padding: 100px 0 30px 0;
     }
 
     &__sitemap {
       width: 100%;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         width: 15%;
       }
 
@@ -45,7 +42,7 @@
           font-weight: 500;
           transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 
-          @include v.respond-to(lg) {
+          @include v.respond-to(xl) {
             &:hover {
               color: v.$gray;
             }
@@ -59,7 +56,7 @@
       font-size: clamp(14px, 10px + 1vw, 16px);
       color: v.$dark-gray;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         width: 30%;
       }
     }
@@ -69,7 +66,7 @@
       flex-direction: column;
       gap: 20px;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         width: 50%;
       }
 
@@ -85,9 +82,6 @@
           flex-direction: column;
           gap: 16px;
 
-          @include v.respond-to(lg) {
-            width: 90%;
-          }
           @include v.respond-to(xl) {
             width: 80%;
           }
@@ -127,7 +121,7 @@
                     text-decoration: underline;
                     transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 
-                    @include v.respond-to(lg) {
+                    @include v.respond-to(xl) {
                       &:hover {
                         color: v.$gray;
                       }
@@ -164,7 +158,7 @@
     gap: 20px;
     padding: 20px;
 
-    @include v.respond-to(lg) {
+    @include v.respond-to(xl) {
       flex-direction: row;
       justify-content: space-between;
       padding: 40px 0;
@@ -176,7 +170,7 @@
       align-items: center;
       gap: 20px;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         width: fit-content;
       }
 
@@ -186,7 +180,7 @@
           transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
 
-        @include v.respond-to(lg) {
+        @include v.respond-to(xl) {
           &:hover {
             svg {
               opacity: 0.5;
@@ -201,7 +195,7 @@
       flex-direction: column;
       gap: 10px;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         align-items: center;
         justify-content: center;
       }
@@ -210,7 +204,7 @@
         display: flex;
         gap: 10px;
 
-        @include v.respond-to(lg) {
+        @include v.respond-to(xl) {
           align-items: center;
         }
 
@@ -231,7 +225,7 @@
             }
           }
 
-          @include v.respond-to(lg) {
+          @include v.respond-to(xl) {
             &:hover {
               opacity: 0.7;
             }
@@ -249,7 +243,7 @@
       pointer-events: none;
       visibility: hidden;
 
-      @include v.respond-to(lg) {
+      @include v.respond-to(xl) {
         display: block;
       }
     }
@@ -269,7 +263,7 @@
                 color: v.$blue-300 !important;
                 border-color: v.$blue-300 !important;
 
-                @include v.respond-to(lg) {
+                @include v.respond-to(xl) {
                   &:hover {
                     color: v.$white !important;
                     background-color: v.$blue-300 !important;
@@ -298,7 +292,7 @@
                 color: v.$fucsia-300 !important;
                 border-color: v.$fucsia-300 !important;
 
-                @include v.respond-to(lg) {
+                @include v.respond-to(xl) {
                   &:hover {
                     color: v.$white !important;
                     background-color: v.$fucsia-300 !important;
@@ -327,7 +321,7 @@
                 color: v.$verde-300 !important;
                 border-color: v.$verde-300 !important;
 
-                @include v.respond-to(lg) {
+                @include v.respond-to(xl) {
                   &:hover {
                     color: v.$white !important;
                     background-color: v.$verde-300 !important;
@@ -356,7 +350,7 @@
                 color: v.$giallo-300 !important;
                 border-color: v.$giallo-300 !important;
 
-                @include v.respond-to(lg) {
+                @include v.respond-to(xl) {
                   &:hover {
                     color: v.$white !important;
                     background-color: v.$giallo-300 !important;
@@ -385,7 +379,7 @@
                 color: v.$azzurro-300 !important;
                 border-color: v.$azzurro-300 !important;
 
-                @include v.respond-to(lg) {
+                @include v.respond-to(xl) {
                   &:hover {
                     color: v.$white !important;
                     background-color: v.$azzurro-300 !important;
