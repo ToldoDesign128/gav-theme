@@ -1,0 +1,144 @@
+// Servizi Loop Block
+
+@use "/assets/scss/variable/variable" as v;
+
+.servizi-block {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  @include v.respond-to(xl) {
+    padding: 70px 0;
+    gap: 40px;
+  }
+
+  &__title {
+    color: v.$black;
+    font-size: clamp(24px, 16px + 4vw, 36px);
+    font-weight: 700;
+  }
+
+  &__loop {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+
+    @include v.respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    &__item {
+      border-radius: 16px;
+      overflow: hidden;
+
+      &__link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &__image {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16 / 9;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+          }
+        }
+        &__title {
+          text-align: center;
+            padding: 20px;
+          color: v.$black;
+          font-size: clamp(16px, 12px + 1vw, 20px);
+          font-weight: 500;
+
+              @include v.respond-to(xl) {
+                padding: 40px 20px;
+            }
+        }
+      }
+
+      &.rosa,
+      &.giallo,
+      &.azzurro,
+      &.verde,
+      &.viola {
+        transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+
+      &.rosa {
+        background-color: v.$fucsia-300;
+
+        @include v.respond-to(xl) {
+          background-color: v.$fucsia-200;
+        }
+      }
+      &.giallo {
+        background-color: v.$giallo-300;
+
+        @include v.respond-to(xl) {
+          background-color: v.$giallo-200;
+        }
+      }
+      &.azzurro {
+        background-color: v.$azzurro-300;
+
+        @include v.respond-to(xl) {
+          background-color: v.$azzurro-200;
+        }
+      }
+      &.verde {
+        background-color: v.$verde-300;
+
+        @include v.respond-to(xl) {
+          background-color: v.$verde-200;
+        }
+      }
+      &.viola {
+        background-color: v.$blue-300;
+
+        @include v.respond-to(xl) {
+          background-color: v.$blue-200;
+        }
+      }
+
+      @include v.respond-to(xl) {
+        &:hover {
+          .servizi-block__loop__item__link__image {
+              img {
+                transform: scale(1.05);
+              }
+            }
+
+          &.rosa {
+            background-color: v.$fucsia-300;
+          }
+          &.giallo {
+            background-color: v.$giallo-300;
+          }
+          &.azzurro {
+            background-color: v.$azzurro-300;
+          }
+          &.verde {
+            background-color: v.$verde-300;
+          }
+          &.viola {
+            background-color: v.$blue-300;
+          }
+        }
+      }
+    }
+  }
+}
