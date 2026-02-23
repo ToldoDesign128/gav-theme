@@ -55,4 +55,28 @@ window.addEventListener('load', function () {
             clickable: true,
         },
     });
+
+    // Valori
+    new Swiper('.swiperValori', {
+        // Optional parameters
+        slidesPerView: 1.5,
+        spaceBetween: 32,
+
+        breakpoints: {
+            768: {
+                slidesPerView: 2.5,
+            },
+            1024: {
+                slidesPerView: 3.5,
+            },
+            1280: {
+                slidesPerView: 4.5,
+            },
+        },
+
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
 });

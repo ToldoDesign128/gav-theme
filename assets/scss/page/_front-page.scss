@@ -5,13 +5,13 @@
 .front-page {
   width: 100%;
   height: auto;
-  padding: 90px 0;
+  padding: 90px 0 0 0;
 
   @include v.respond-to(xl) {
-    padding: 110px 0;
+    padding: 110px 0 0 0;
   }
   @include v.respond-to(xxl) {
-    padding: 120px 0;
+    padding: 120px 0 0 0;
   }
 
   .hero {
@@ -30,13 +30,18 @@
     background-color: v.$blue-200;
 
     @include v.respond-to(xl) {
-      padding: 70px 0px;
+      padding: 90px 0px;
+      gap: 50px;
     }
 
     &__wrap {
       display: flex;
       flex-direction: column;
       gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
 
       &__intro {
         display: flex;
@@ -58,7 +63,7 @@
           color: v.$black;
           font-size: clamp(12px, 8px + 1vw, 16px);
           font-weight: 500;
-          transition: all .6s cubic-bezier(.215, .61, .355, 1);
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 
           &:after {
             content: ">";
@@ -157,13 +162,17 @@
     padding: 40px 20px;
 
     @include v.respond-to(xl) {
-      padding: 70px 0px;
+      padding: 90px 0px;
     }
 
     &__wrap {
       display: flex;
       flex-direction: column;
       gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
 
       &__intro {
         display: flex;
@@ -212,7 +221,7 @@
           border-radius: 10px;
         }
 
-        .swiper-pagination{
+        .swiper-pagination {
           top: auto;
           bottom: 0;
         }
@@ -226,13 +235,17 @@
     background-color: v.$blue-200;
 
     @include v.respond-to(xl) {
-      padding: 70px 0px;
+      padding: 90px 0px;
     }
 
     &__wrap {
       display: flex;
       flex-direction: column;
       gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
 
       &__intro {
         display: flex;
@@ -254,7 +267,7 @@
           color: v.$black;
           font-size: clamp(12px, 8px + 1vw, 16px);
           font-weight: 500;
-          transition: all .6s cubic-bezier(.215, .61, .355, 1);
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 
           &:after {
             content: ">";
@@ -302,58 +315,441 @@
           grid-template-columns: repeat(4, 1fr);
         }
 
-        &__item{
-          &__link{
+        &__item {
+          &__link {
             display: flex;
             flex-direction: column;
             gap: 10px;
 
-            &__image{
+            &__image {
               aspect-ratio: 4 / 3;
               border-radius: 12px;
               overflow: hidden;
 
-              img{
+              img {
                 width: 100%;
                 height: auto;
                 object-fit: cover;
-                transition: all .6s cubic-bezier(.215, .61, .355, 1);
+                transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
               }
             }
 
-            time{
+            time {
               color: v.$black;
               font-size: clamp(10px, 6px + 1vw, 12px);
               font-weight: 400;
-              transition: all .6s cubic-bezier(.215, .61, .355, 1);
+              transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
             }
-            p{
+            p {
               line-height: 1;
               color: v.$black;
               font-size: clamp(16px, 12px + 1vw, 18px);
               font-weight: 600;
-              transition: all .6s cubic-bezier(.215, .61, .355, 1);
+              transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
             }
 
             @include v.respond-to(xl) {
-              
               &:hover {
-
-                .news-block__wrap__loop__item__link__image{
-                  img{
+                .news-block__wrap__loop__item__link__image {
+                  img {
                     transform: scale(1.05);
                   }
                 }
 
-                time{
+                time {
                   opacity: 0.6;
                 }
-                p{
+                p {
                   opacity: 0.6;
                 }
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  .valori {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+      gap: 50px;
+    }
+
+    &__info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__title {
+        color: v.$black;
+        font-size: clamp(24px, 16px + 2vw, 36px);
+        font-weight: 700;
+      }
+    }
+    &__slider {
+      width: 100%;
+      position: relative;
+      padding-bottom: 30px;
+
+      @include v.respond-to(xl) {
+        padding-bottom: 40px;
+      }
+
+      &__item {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: v.$blue-200;
+        padding: 30px 20px;
+        border-radius: 12px;
+
+        @include v.respond-to(xl) {
+          padding: 60px 30px;
+        }
+
+        &__text {
+          text-align: center;
+          color: v.$black;
+          font-size: clamp(16px, 12px + 1vw, 18px);
+          font-weight: 600;
+        }
+      }
+
+      .navigation-wrapper {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: v.$black;
+          height: fit-content;
+          width: fit-content;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          top: auto;
+          left: auto;
+          bottom: auto;
+          right: auto;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .social {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: v.$blue-200;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
+
+      &__intro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__title {
+          text-align: center;
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+        }
+      }
+
+      &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @include v.respond-to(xl) {
+          flex-direction: row;
+        }
+
+        &__item {
+          width: 100%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          aspect-ratio: 1;
+          border-radius: 16px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            object-fit: cover;
+            filter: opacity(0.6);
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+          }
+          &:first-child {
+            img {
+              filter: opacity(0.6) hue-rotate(315deg);
+
+              @include v.respond-to(xl) {
+                filter: none;
+              }
+            }
+          }
+          &:last-child {
+            img {
+              filter: opacity(0.6) hue-rotate(180deg);
+
+              @include v.respond-to(xl) {
+                filter: none;
+              }
+            }
+          }
+          svg {
+            position: absolute;
+            z-index: 10;
+            width: 120px;
+            height: 120px;
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+            @include v.respond-to(xl) {
+              width: 150px;
+              height: 150px;
+              opacity: 0;
+            }
+
+            path {
+              fill: v.$white;
+            }
+          }
+
+          @include v.respond-to(xl) {
+            width: calc(50% - 15px);
+            aspect-ratio: 5 / 6;
+
+            &:hover {
+              &:first-child {
+                img {
+                  filter: opacity(0.6) hue-rotate(315deg);
+                }
+              }
+              &:last-child {
+                img {
+                  filter: opacity(0.6) hue-rotate(180deg);
+                }
+              }
+
+              svg {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .maps-block {
+    width: 100%;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+      gap: 50px;
+    }
+
+    &__info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &__title {
+        color: v.$black;
+        font-size: clamp(24px, 16px + 2vw, 36px);
+        font-weight: 700;
+      }
+    }
+
+    &__content{
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .network-block {
+    width: 100%;
+    padding: 40px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
+
+      &__intro {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        &__title {
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+        }
+      }
+      &__repeater {
+        padding: 20px 0 40px 0;
+        position: relative;
+
+        @include v.respond-to(xl) {
+          padding: 30px 0 50px 0;
+        }
+
+        ul {
+          .network-item {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &__link {
+              transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+              @include v.respond-to(xl) {
+                &:hover {
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: v.$black;
+          padding: 12px;
+          background-color: v.$white;
+          border-radius: 10px;
+        }
+
+        .swiper-pagination {
+          top: auto;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  .parte-block {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: v.$blue-100;
+
+    @include v.respond-to(xl) {
+      padding: 60px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      &__intro {
+        display: flex;
+        flex-direction: row;
+
+        &__title {
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+        }
+      }
+      &__repeater {
+        padding: 20px 0 40px 0;
+        position: relative;
+
+        @include v.respond-to(xl) {
+          padding: 30px 0 50px 0;
+        }
+
+        ul {
+          .parte-item {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &__link {
+              transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+              @include v.respond-to(xl) {
+                &:hover {
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: v.$black;
+          padding: 12px;
+          background-color: v.$white;
+          border-radius: 10px;
+        }
+
+        .swiper-pagination {
+          top: auto;
+          bottom: 0;
         }
       }
     }

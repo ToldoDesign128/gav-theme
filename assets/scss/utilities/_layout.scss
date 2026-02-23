@@ -19,7 +19,7 @@
     }
 
     @include v.respond-to(xxl) {
-        max-width: 1456px;
+        max-width: 1400px;
     }
 
     @include v.respond-to(big) {

@@ -289,9 +289,9 @@ get_header(); ?>
                     </span>
 
                     <?php if ($titolo_news) : ?>
-                        <h3 class="news-block__wrap__intro__title">
+                        <h5 class="news-block__wrap__intro__title">
                             <?php echo esc_html($titolo_news); ?>
-                        </h3>
+                        </h5>
                     <?php endif; ?>
 
                     <?php if ($link_news) : ?>
@@ -329,9 +329,229 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="placeholder">
+        <section class="valori container">
+            <div class="valori__info">
+
+                <?php
+                $valori_title = get_field('titolo_professionalita_home');
+                if ($valori_title) : ?>
+                    <h6 class="valori__info__title">
+                        <?php echo esc_html($valori_title); ?>
+                    </h6>
+                <?php endif; ?>
+
+            </div>
+            <?php
+            if (have_rows('repeater_card_home')): ?>
+
+                <div class="valori__slider swiperValori">
+                    <ul class="swiper-wrapper">
+                        <?php
+                        while (have_rows('repeater_card_home')) : the_row();
+                            $sub_value = get_sub_field('testo'); ?>
+
+                            <div class="valori__slider__item swiper-slide">
+                                <?php if ($sub_value) : ?>
+                                    <p class="valori__slider__item__text">
+                                        <?php echo esc_html($sub_value); ?>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
+
+                        <?php endwhile; ?>
+                    </ul>
+                    <div class="navigation-wrapper">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+
+            <?php
+            endif; ?>
         </section>
 
+        <section class="social">
+            <div class="social__wrap container">
+                <div class="social__wrap__intro">
+                    <?php
+                    $social_title = get_field('titolo_social_home');
+                    if ($social_title) : ?>
+                        <p class="social__wrap__intro__title">
+                            <?php echo esc_html($social_title); ?>
+                        </p>
+                    <?php endif; ?>
+                </div>
+
+                <?php
+                if (have_rows('repeater_social_home')): ?>
+                    <div class="social__wrap__links">
+                        <?php
+                        while (have_rows('repeater_social_home')) : the_row();
+                            $img_social = get_sub_field('image');
+                            $logo_social = get_sub_field('logo');
+                            $link_social = get_sub_field('link_social');
+
+                            if ($link_social) {
+                                $link_social_url = $link_social['url'];
+                                $link_social_title = $link_social['title'];
+                                $link_social_target = $link_social['target'] ? $link_social['target'] : '_self';
+                            }; ?>
+
+                            <a class="social__wrap__links__item" href="<?php echo esc_url($link_social_url); ?>" target="<?php echo esc_attr($link_social_target); ?>">
+                                <?php if ($img_social) : ?>
+                                    <img src="<?php echo esc_url($img_social['url']); ?>" alt="<?php echo esc_attr($img_social['alt']); ?>">
+                                <?php endif; ?>
+                                <?php if ($logo_social) :
+                                    echo file_get_contents($logo_social['url']);
+                                endif; ?>
+                            </a>
+
+                        <?php
+                        endwhile; ?>
+                    </div>
+                <?php
+                endif; ?>
+            </div>
+        </section>
+
+        <section class="maps-block container">
+            <div class="maps-block__info">
+                <?php
+                $map_title = get_field('titolo_mappa_home');
+                if ($map_title) : ?>
+                    <p class="maps-block__info__title">
+                        <?php echo esc_html($map_title); ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+            <div class="maps-block__content">
+                <?php
+                $map_embed = get_field('mappa_home');
+                if ($map_embed) {
+                    echo strip_tags($map_embed, '<iframe>');
+                }; ?>
+            </div>
+        </section>
+
+        <section class="network-block container ">
+            <div class="network-block__wrap">
+                <div class="network-block__wrap__intro">
+                    <?php
+                    $title_network = get_field('titolo_network_home');
+                    if ($title_network) : ?>
+                        <h4 class="network-block__wrap__intro__title"><?php echo esc_html($title_network); ?></h4>
+                    <?php endif; ?>
+                </div>
+
+                <?php
+                if (have_rows('repeater_network_home')): ?>
+
+                    <div class="network-block__wrap__repeater swiperCollaborazioni">
+                        <ul class="swiper-wrapper">
+
+                            <?php
+                            while (have_rows('repeater_network_home')) : the_row();
+                                $link_rep_network = get_sub_field('link');
+                                $image_rep_network = get_sub_field('image');
+
+                                if ($link_rep_network) {
+                                    $link_rep_network_url = $link_rep_network['url'];
+                                    $link_rep_network_title = $link_rep_network['title'];
+                                    $link_rep_network_target = $link_rep_network['target'] ? $link_rep_network['target'] : '_self';
+                                }; ?>
+
+                                <li class="network-item swiper-slide">
+
+                                    <?php if ($link_rep_network) : ?>
+                                        <a href="<?php echo esc_url($link_rep_network_url); ?>" target="<?php echo esc_attr($link_rep_network_target); ?>" class="collab-item__link">
+                                            <?php if ($image_rep_network) : ?>
+                                                <img src="<?php echo esc_url($image_rep_network['url']); ?>" alt="<?php echo esc_attr($image_rep_network['alt']); ?>">
+                                            <?php endif; ?>
+                                        </a>
+                                    <?php elseif ($image_rep_network) : ?>
+                                        <img src="<?php echo esc_url($image_rep_network['url']); ?>" alt="<?php echo esc_attr($image_rep_network['alt']); ?>">
+                                    <?php endif; ?>
+
+                                </li>
+
+
+                            <?php
+                            endwhile; ?>
+
+                        </ul>
+
+                        <div class="swiper-button-prev"></div>
+
+                        <div class="swiper-button-next"></div>
+
+                        <div class="swiper-pagination"></div>
+
+                    </div>
+
+                <?php
+                endif; ?>
+            </div>
+        </section>
+
+        <section class="parte-block">
+            <div class="parte-block__wrap container">
+                <div class="parte-block__wrap__intro">
+                    <?php
+                    $title_parte = get_field('titolo_siamo_home');
+                    if ($title_parte) : ?>
+                        <p class="parte-block__wrap__intro__title"><?php echo esc_html($title_parte); ?></p>
+                    <?php endif; ?>
+                </div>
+
+                <?php
+                if (have_rows('repeater_siamo_home')): ?>
+
+                    <div class="parte-block__wrap__repeater swiperCollaborazioni">
+                        <ul class="swiper-wrapper">
+
+                            <?php
+                            while (have_rows('repeater_siamo_home')) : the_row();
+                                $link_rep_parte = get_sub_field('link');
+                                $image_rep_parte = get_sub_field('image');
+
+                                if ($link_rep_parte) {
+                                    $link_rep_parte_url = $link_rep_parte['url'];
+                                    $link_rep_parte_title = $link_rep_parte['title'];
+                                    $link_rep_parte_target = $link_rep_parte['target'] ? $link_rep_parte['target'] : '_self';
+                                }; ?>
+
+                                <li class="parte-item swiper-slide">
+
+                                    <?php if ($link_rep_parte) : ?>
+                                        <a href="<?php echo esc_url($link_rep_parte_url); ?>" target="<?php echo esc_attr($link_rep_parte_target); ?>" class="collab-item__link">
+                                            <?php if ($image_rep_parte) : ?>
+                                                <img src="<?php echo esc_url($image_rep_parte['url']); ?>" alt="<?php echo esc_attr($image_rep_parte['alt']); ?>">
+                                            <?php endif; ?>
+                                        </a>
+                                    <?php elseif ($image_rep_parte) : ?>
+                                        <img src="<?php echo esc_url($image_rep_parte['url']); ?>" alt="<?php echo esc_attr($image_rep_parte['alt']); ?>">
+                                    <?php endif; ?>
+
+                                </li>
+
+
+                            <?php
+                            endwhile; ?>
+
+                        </ul>
+
+                        <div class="swiper-button-prev"></div>
+
+                        <div class="swiper-button-next"></div>
+
+                        <div class="swiper-pagination"></div>
+
+                    </div>
+
+                <?php
+                endif; ?>
+            </div>
+        </section>
     </main>
 
     <?php get_template_part('template-parts/footer-block'); ?>
