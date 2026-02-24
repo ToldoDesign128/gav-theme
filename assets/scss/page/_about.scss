@@ -79,8 +79,8 @@
         &__item {
           position: relative;
           width: 100%;
-          aspect-ratio: 16/9;
           border-radius: 12px;
+          aspect-ratio: 16 / 9;
           overflow: hidden;
           background-color: v.$verde-300;
 
@@ -406,24 +406,460 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 30px;
-          aspect-ratio: 16 / 9;
+          padding: 40px 30px;
           background-color: v.$verde-200;
           border-radius: 12px;
+          border: 1px solid v.$verde-300;
 
           &:nth-child(5) {
             background-color: v.$verde-300;
           }
 
-        &__text{
+          @include v.respond-to(xl) {
+            padding: 60px 40px;
+          }
+
+          &__text {
             color: v.$black;
             font-size: clamp(14px, 10px + 1vw, 18px);
             text-align: center;
 
-            strong{
-                font-weight: 800;
+            strong {
+              font-weight: 800;
             }
+          }
         }
+      }
+    }
+  }
+
+  .storia {
+    width: 100%;
+    padding: 60px 0;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
+
+      &__title {
+        text-align: center;
+        color: v.$black;
+        font-size: clamp(24px, 16px + 2vw, 36px);
+        font-weight: 700;
+      }
+    }
+  }
+
+  .logo {
+    width: 100%;
+    padding: 60px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 70px;
+      }
+
+      &__intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        @include v.respond-to(xl) {
+          gap: 30px;
+        }
+
+        &__title {
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+        }
+        &__text {
+          color: v.$black;
+          font-size: clamp(14px, 10px + 1vw, 18px);
+          text-align: center;
+          max-width: 90%;
+
+          @include v.respond-to(lg) {
+            max-width: 70%;
+          }
+          @include v.respond-to(xl) {
+            max-width: 60%;
+          }
+        }
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        @include v.respond-to(xl) {
+          flex-direction: row;
+          gap: 60px;
+        }
+
+        &__image {
+          width: 100%;
+
+          @include v.respond-to(xl) {
+            width: calc(55% - 30px);
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        &__text {
+          padding: 20px;
+          color: v.$black;
+          font-size: clamp(14px, 10px + 1vw, 18px);
+
+          @include v.respond-to(xl) {
+            padding: 0;
+            width: calc(45% - 30px);
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  .parte-block {
+    background-color: v.$verde-200;
+  }
+
+  .soci {
+    width: 100%;
+    padding: 60px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 70px;
+      }
+
+      &__intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        @include v.respond-to(xl) {
+          gap: 30px;
+        }
+
+        &__title {
+          color: v.$black;
+          font-size: clamp(30px, 22px + 2vw, 48px);
+          font-weight: 700;
+        }
+        &__text {
+          color: v.$black;
+          font-size: clamp(14px, 10px + 1vw, 18px);
+          text-align: center;
+          max-width: 90%;
+
+          @include v.respond-to(lg) {
+            max-width: 70%;
+          }
+          @include v.respond-to(xl) {
+            max-width: 60%;
+          }
+        }
+        &__title-2 {
+          margin-top: 20px;
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+
+          @include v.respond-to(xl) {
+            margin-top: 50px;
+          }
+        }
+      }
+
+      &__repeater {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+
+        @include v.respond-to(md) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include v.respond-to(xl) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        &__item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          padding: 40px 30px;
+          background-color: v.$white;
+          border-radius: 12px;
+          border: 1px solid v.$verde-300;
+
+          @include v.respond-to(xl) {
+            padding: 60px 40px;
+          }
+
+          &__title {
+            color: v.$black;
+            font-size: clamp(18px, 14px + 1vw, 20px);
+            font-weight: 600;
+          }
+
+          &__text {
+            color: v.$black;
+            font-size: clamp(14px, 10px + 1vw, 18px);
+            text-align: center;
+
+            strong {
+              font-weight: 800;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .grafici {
+    width: 100%;
+    padding: 60px 20px;
+    background-color: v.$verde-200;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+
+      @include v.respond-to(xl) {
+        gap: 60px;
+      }
+
+      &__title {
+        color: v.$black;
+        font-size: clamp(24px, 16px + 2vw, 36px);
+        font-weight: 700;
+        text-align: center;
+      }
+
+      &__cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        width: 100%;
+
+        @include v.respond-to(md) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        @include v.respond-to(xl) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        &__item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+          padding: 40px 30px;
+          background-color: v.$white;
+          border-radius: 16px;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+          @include v.respond-to(xl) {
+            padding: 50px 40px;
+          }
+
+          &__chart {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include v.respond-to(xl) {
+              width: 190px;
+              height: 190px;
+            }
+
+            svg {
+              width: 100%;
+              height: 100%;
+            }
+
+            .donut-track {
+              opacity: 0.3;
+            }
+
+            .donut-fill {
+              transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            &__percent {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: clamp(28px, 20px + 2vw, 36px);
+              font-weight: 700;
+              line-height: 1;
+            }
+          }
+
+          &__label {
+            color: v.$dark-gray;
+            font-size: clamp(14px, 12px + 0.5vw, 16px);
+            text-align: center;
+            line-height: 1.4;
+          }
+
+          &__number {
+            font-size: clamp(28px, 20px + 2vw, 40px);
+            font-weight: 800;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .governance{
+    width: 100%;
+    padding: 60px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
+
+      &__intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        @include v.respond-to(xl) {
+          gap: 50px;
+        }
+
+        &__title {
+          color: v.$black;
+          font-size: clamp(30px, 22px + 2vw, 48px);
+          font-weight: 700;
+        }
+        &__image{
+          width: 100%;
+          border-radius: 16px;
+          overflow: hidden;
+          
+          @include v.respond-to(md) {
+            width: 80%;
+          }
+          @include v.respond-to(xl) {
+            width: 70%;
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        @include v.respond-to(xl) {
+          flex-direction: row;
+          gap: 60px;
+        }
+
+        &__col{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+
+          &__title{
+            color: v.$black;
+            font-size: clamp(18px, 14px + 1vw, 24px);
+            font-weight: 700;
+            text-align: center;
+          }
+          &__text{
+            color: v.$black;
+            font-size: clamp(14px, 10px + 1vw, 18px);
+            text-align: center;
+
+            p{
+              padding-bottom: 20px;
+            }
+
+            strong{
+              font-weight: 700;
+            }
+          }
         }
       }
     }

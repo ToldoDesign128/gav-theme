@@ -238,6 +238,343 @@ get_header(); ?>
       </div>
     </section>
 
+    <section class="storia container">
+      <div class="storia__wrap">
+        <h4 class="storia__wrap__title">
+          <?php
+          $storia_title = get_field('titolo_storia_about');
+          if ($storia_title) {
+            echo esc_html($storia_title);
+          }; ?>
+        </h4>
+        <?php
+        if (have_rows('repeater_video_about')): ?>
+
+          <div class="gallery swiperStoria">
+            <div class="swiper-wrapper">
+
+              <?php // Loop immagini
+              while (have_rows('repeater_video_about')) : the_row();
+                $gallery_img = get_sub_field('image');
+                if (!empty($gallery_img) && is_array($gallery_img) && !empty($gallery_img['url'])) : ?>
+                  <div class="gallery__item swiper-slide">
+                    <img src="<?php echo esc_url($gallery_img['url']); ?>" alt="<?php echo esc_attr($gallery_img['alt'] ?? ''); ?>">
+                  </div>
+                <?php endif;
+              endwhile;
+
+              // Reset del cursore del repeater per il secondo loop
+              reset_rows();
+
+              // Loop video
+              while (have_rows('repeater_video_about')) : the_row();
+                $gallery_video = get_sub_field('video');
+                if (!empty($gallery_video) && strlen(trim($gallery_video)) > 0) :
+                  $embed_url = '';
+                  if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/', $gallery_video, $matches)) {
+                    $embed_url = 'https://www.youtube.com/embed/' . $matches[1];
+                  } elseif (preg_match('/vimeo\.com\/(\d+)/', $gallery_video, $matches)) {
+                    $embed_url = 'https://player.vimeo.com/video/' . $matches[1];
+                  }
+                ?>
+                  <div class="gallery__item swiper-slide">
+                    <?php if ($embed_url) : ?>
+                      <div class="gallery__item__video">
+                        <iframe src="<?php echo esc_url($embed_url); ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      </div>
+                    <?php else : ?>
+                      <video controls>
+                        <source src="<?php echo esc_url($gallery_video); ?>" type="video/mp4">
+                      </video>
+                    <?php endif; ?>
+                  </div>
+              <?php endif;
+              endwhile; ?>
+
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+        <?php
+        endif; ?>
+      </div>
+    </section>
+
+    <section class="logo container">
+      <div class="logo__wrap">
+        <?php
+        $titolo_logo = get_field('titolo_logo_about');
+        $testo_logo = get_field('testo_logo_about'); ?>
+
+        <div class="logo__wrap__intro">
+          <?php if ($titolo_logo) : ?>
+            <h5 class="logo__wrap__intro__title">
+              <?php echo esc_html($titolo_logo); ?>
+            </h5>
+          <?php endif; ?>
+
+          <?php if ($testo_logo) : ?>
+            <div class="logo__wrap__intro__text">
+              <?php echo $testo_logo; ?>
+            </div>
+          <?php endif; ?>
+        </div>
+
+        <div class="logo__wrap__content">
+          <?php
+          $logo_img = get_field('logo_about');
+          $logo_content = get_field('elenco_logo_about'); ?>
+
+          <?php if ($logo_img) : ?>
+            <div class="logo__wrap__content__image">
+              <img src="<?php echo esc_url($logo_img['url']); ?>" alt="<?php echo esc_attr($logo_img['alt']); ?>">
+            </div>
+          <?php endif; ?>
+          <?php if ($logo_content) : ?>
+            <div class="logo__wrap__content__text">
+              <?php echo $logo_content; ?>
+            </div>
+          <?php endif; ?>
+
+        </div>
+      </div>
+
+    </section>
+
+    <section class="parte-block">
+      <div class="parte-block__wrap container">
+        <div class="parte-block__wrap__intro">
+          <?php
+          $title_parte = get_field('titolo_siamo_about');
+          if ($title_parte) : ?>
+            <p class="parte-block__wrap__intro__title"><?php echo esc_html($title_parte); ?></p>
+          <?php endif; ?>
+        </div>
+
+        <?php
+        if (have_rows('repeater_siamo_about')): ?>
+
+          <div class="parte-block__wrap__repeater swiperCollaborazioni">
+            <ul class="swiper-wrapper">
+
+              <?php
+              while (have_rows('repeater_siamo_about')) : the_row();
+                $link_rep_parte = get_sub_field('link');
+                $image_rep_parte = get_sub_field('image');
+
+                if ($link_rep_parte) {
+                  $link_rep_parte_url = $link_rep_parte['url'];
+                  $link_rep_parte_title = $link_rep_parte['title'];
+                  $link_rep_parte_target = $link_rep_parte['target'] ? $link_rep_parte['target'] : '_self';
+                }; ?>
+
+                <li class="parte-item swiper-slide">
+
+                  <?php if ($link_rep_parte) : ?>
+                    <a href="<?php echo esc_url($link_rep_parte_url); ?>" target="<?php echo esc_attr($link_rep_parte_target); ?>" class="collab-item__link">
+                      <?php if ($image_rep_parte) : ?>
+                        <img src="<?php echo esc_url($image_rep_parte['url']); ?>" alt="<?php echo esc_attr($image_rep_parte['alt']); ?>">
+                      <?php endif; ?>
+                    </a>
+                  <?php elseif ($image_rep_parte) : ?>
+                    <img src="<?php echo esc_url($image_rep_parte['url']); ?>" alt="<?php echo esc_attr($image_rep_parte['alt']); ?>">
+                  <?php endif; ?>
+
+                </li>
+
+
+              <?php
+              endwhile; ?>
+
+            </ul>
+
+            <div class="swiper-button-prev"></div>
+
+            <div class="swiper-button-next"></div>
+
+            <div class="swiper-pagination"></div>
+
+          </div>
+
+        <?php
+        endif; ?>
+      </div>
+    </section>
+
+    <section class="soci">
+      <?php
+      $titolo_soci = get_field('titolo_cooperativa_about');
+      $titolo_soci_2 = get_field('titolo_soci_about');
+      $testo_soci = get_field('testo_cooperativa_about'); ?>
+
+      <div class="soci__wrap container">
+
+        <div class="soci__wrap__intro">
+          <?php if ($titolo_soci) : ?>
+            <h6 class="soci__wrap__intro__title">
+              <?php echo esc_html($titolo_soci); ?>
+            </h6>
+          <?php endif; ?>
+
+          <?php if ($testo_soci) : ?>
+            <div class="soci__wrap__intro__text">
+              <?php echo $testo_soci; ?>
+            </div>
+          <?php endif; ?>
+
+          <?php if ($titolo_soci_2) : ?>
+            <p class="soci__wrap__intro__title-2">
+              <?php echo esc_html($titolo_soci_2); ?>
+            </p>
+          <?php endif; ?>
+        </div>
+
+        <?php
+        if (have_rows('repeater_soci_about')): ?>
+
+          <div class="soci__wrap__repeater">
+            <?php
+            while (have_rows('repeater_soci_about')) : the_row();
+              $title_soci = get_sub_field('titolo');
+              $text_soci = get_sub_field('testo'); ?>
+
+              <div class="soci__wrap__repeater__item">
+                <?php if ($title_soci) : ?>
+                  <p class="soci__wrap__repeater__item__title">
+                    <?php echo esc_html($title_soci); ?>
+                  </p>
+                <?php endif;
+                if ($text_soci) : ?>
+                  <div class="soci__wrap__repeater__item__text">
+                    <?php echo $text_soci; ?>
+                  </div>
+                <?php endif; ?>
+              </div>
+
+            <?php endwhile; ?>
+          </div>
+
+        <?php
+        endif; ?>
+      </div>
+    </section>
+
+    <section class="grafici">
+      <?php
+      $titolo_grafici = get_field('titolo_soci_2_about');
+      $colors = ['#fdc553', '#3d6b4f', '#7390dd'];
+      ?>
+
+      <div class="grafici__wrap container">
+
+        <?php if ($titolo_grafici) : ?>
+          <h3 class="grafici__wrap__title">
+            <?php echo esc_html($titolo_grafici); ?>
+          </h3>
+        <?php endif; ?>
+
+        <?php if (have_rows('repeater_grafici_about')): ?>
+          <div class="grafici__wrap__cards">
+            <?php
+            $i = 0;
+            while (have_rows('repeater_grafici_about')) : the_row();
+              $percentuale = get_sub_field('n_percentuale');
+              $n_soci = get_sub_field('n_soci');
+              $testo = get_sub_field('testo_soci');
+              $color = $colors[$i % count($colors)];
+              $circumference = 2 * 3.14159265 * 54;
+              $offset = $circumference - ($circumference * intval($percentuale) / 100);
+            ?>
+
+              <div class="grafici__wrap__cards__item">
+                <div class="grafici__wrap__cards__item__chart">
+                  <svg viewBox="0 0 120 120" class="donut-chart" data-percent="<?php echo esc_attr($percentuale); ?>">
+                    <circle class="donut-track" cx="60" cy="60" r="54" fill="none" stroke="#e8e8e8" stroke-width="12" />
+                    <circle class="donut-fill" cx="60" cy="60" r="54" fill="none" stroke="<?php echo esc_attr($color); ?>" stroke-width="12" stroke-linecap="round" stroke-dasharray="<?php echo $circumference; ?>" stroke-dashoffset="<?php echo $circumference; ?>" data-target-offset="<?php echo $offset; ?>" transform="rotate(-90 60 60)" />
+                  </svg>
+                  <span class="grafici__wrap__cards__item__chart__percent" style="color: <?php echo esc_attr($color); ?>">
+                    <?php echo esc_html($percentuale); ?>%
+                  </span>
+                </div>
+
+                <?php if ($testo) : ?>
+                  <p class="grafici__wrap__cards__item__label">
+                    <?php echo esc_html($testo); ?>
+                  </p>
+                <?php endif; ?>
+
+                <?php if ($n_soci) : ?>
+                  <p class="grafici__wrap__cards__item__number" style="color: <?php echo esc_attr($color); ?>">
+                    <?php echo esc_html($n_soci); ?>
+                  </p>
+                <?php endif; ?>
+              </div>
+
+            <?php
+              $i++;
+            endwhile; ?>
+          </div>
+        <?php endif; ?>
+
+      </div>
+    </section>
+
+    <section class="governance container">
+      <div class="governance__wrap">
+        <?php
+        $title_gov = get_field('titolo_governance_about');
+        $img_gov = get_field('image_governance_about');
+        $title_cons = get_field('titolo_consiglio_about');
+        $text_cons = get_field('testo_consiglio_about');
+        $title_cons_2 = get_field('titolo_consiglio_about_2');
+        $text_cons_2 = get_field('testo_consiglio_about_2');
+        ?>
+        <div class="governance__wrap__intro">
+          <?php if ($title_gov) : ?>
+            <p class="governance__wrap__intro__title">
+              <?php echo esc_html($title_gov); ?>
+            </p>
+          <?php endif; ?>
+          <?php if ($img_gov) : ?>
+            <div class="governance__wrap__intro__image">
+              <img src="<?php echo esc_url($img_gov['url']); ?>" alt="<?php echo esc_attr($img_gov['alt']); ?>">
+            </div>
+          <?php endif; ?>
+        </div>
+        <div class="governance__wrap__content">
+          <div class="governance__wrap__content__col">
+            <?php if ($title_cons) : ?>
+              <p class="governance__wrap__content__col__title">
+                <?php echo esc_html($title_cons); ?>
+              </p>
+            <?php endif; ?>
+            <?php if ($text_cons) : ?>
+              <div class="governance__wrap__content__col__text">
+                <?php echo $text_cons; ?>
+              </div>
+            <?php endif; ?>
+          </div>
+
+          <div class="governance__wrap__content__col">
+            <?php if ($title_cons_2) : ?>
+              <p class="governance__wrap__content__col__title">
+                <?php echo esc_html($title_cons_2); ?>
+              </p>
+            <?php endif; ?>
+            <?php if ($text_cons_2) : ?>
+              <div class="governance__wrap__content__col__text">
+                <?php echo $text_cons_2; ?>
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
   </main>
 
   <?php get_template_part('template-parts/footer-block'); ?>

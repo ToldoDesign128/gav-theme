@@ -1,0 +1,71 @@
+// Block Siamo Parte
+
+@use "/assets/scss/variable/variable" as v;
+
+.parte-block {
+  width: 100%;
+  padding: 40px 20px;
+  background-color: v.$blue-100;
+
+  @include v.respond-to(xl) {
+    padding: 60px 0px;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &__intro {
+      display: flex;
+      flex-direction: row;
+
+      &__title {
+        color: v.$black;
+        font-size: clamp(24px, 16px + 2vw, 36px);
+        font-weight: 700;
+      }
+    }
+    &__repeater {
+      padding: 20px 0 40px 0;
+      position: relative;
+
+      @include v.respond-to(xl) {
+        padding: 30px 0 50px 0;
+      }
+
+      ul {
+        .parte-item {
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          &__link {
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+            @include v.respond-to(xl) {
+              &:hover {
+                opacity: 0.6;
+              }
+            }
+          }
+        }
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        color: v.$black;
+        padding: 12px;
+        background-color: v.$white;
+        border-radius: 10px;
+      }
+
+      .swiper-pagination {
+        top: auto;
+        bottom: 0;
+      }
+    }
+  }
+}
