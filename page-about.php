@@ -575,6 +575,119 @@ get_header(); ?>
 
     </section>
 
+    <section class="leader">
+      <div class="leader__wrap container">
+
+        <div class="leader__wrap__intro">
+
+          <?php
+          $titolo_leader = get_field('titolo_leadershep_about');
+          if ($titolo_leader) : ?>
+            <p class="leader__wrap__intro__title">
+              <?php echo esc_html($titolo_leader); ?>
+            </p>
+          <?php endif; ?>
+
+        </div>
+
+        <?php
+        if (have_rows('repeater_leadership_about')): ?>
+
+          <div class="leader__wrap__cards">
+
+            <?php
+            while (have_rows('repeater_leadership_about')) : the_row();
+              $img_leader = get_sub_field('image');
+              $nome_e_cognome = get_sub_field('nome_e_cognome');
+              $ruolo = get_sub_field('ruolo'); ?>
+
+              <div class="leader__wrap__cards__item">
+                <?php if ($img_leader) : ?>
+                  <div class="leader__wrap__cards__item__image">
+                    <img src="<?php echo esc_url($img_leader['url']); ?>" alt="<?php echo esc_attr($img_leader['alt']); ?>">
+                  </div>
+                <?php endif; ?>
+
+                <div class="leader__wrap__cards__item__content">
+                  <?php if ($nome_e_cognome) : ?>
+                    <p class="leader__wrap__cards__item__content__name">
+                      <?php echo esc_html($nome_e_cognome); ?>
+                    </p>
+                  <?php endif; ?>
+
+                  <?php if ($ruolo) : ?>
+                    <p class="leader__wrap__cards__item__content__role">
+                      <?php echo esc_html($ruolo); ?>
+                    </p>
+                  <?php endif; ?>
+                </div>
+              </div>
+
+            <?php
+            endwhile; ?>
+
+          </div>
+
+        <?php
+        endif; ?>
+
+
+      </div>
+
+    </section>
+
+    <section class="scaricabili container">
+      <div class="scaricabili__wrap">
+
+        <div class="scaricabili__wrap__intro">
+          <?php
+          $titolo_scaricabili = get_field('titolo_scaricabili_about');
+          if ($titolo_scaricabili) : ?>
+            <p class="scaricabili__wrap__intro__title">
+              <?php echo esc_html($titolo_scaricabili); ?>
+            </p>
+          <?php endif; ?>
+        </div>
+
+        <?php
+        if (have_rows('repeater_scaricabili_about')): ?>
+
+          <div class="scaricabili__wrap__repeater">
+            <?php
+            while (have_rows('repeater_scaricabili_about')) : the_row();
+              $file_scaricabile = get_sub_field('file');
+              $testo_file = get_sub_field('testo_file'); ?>
+
+              <div class="scaricabili__wrap__repeater__item">
+                <?php if ($file_scaricabile && $testo_file) :
+                  $file_ext = strtoupper(pathinfo($file_scaricabile['filename'], PATHINFO_EXTENSION));
+                  $file_size = size_format($file_scaricabile['filesize'], 0);
+                ?>
+                  <a href="<?php echo esc_url($file_scaricabile['url']); ?>" class="scaricabili__wrap__repeater__item__link" download>
+                    
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16 36H32V32H16V36ZM16 28H32V24H16V28ZM12 44C10.9 44 9.95833 43.6083 9.175 42.825C8.39167 42.0417 8 41.1 8 40V8C8 6.9 8.39167 5.95833 9.175 5.175C9.95833 4.39167 10.9 4 12 4H28L40 16V40C40 41.1 39.6083 42.0417 38.825 42.825C38.0417 43.6083 37.1 44 36 44H12ZM26 18V8H12V40H36V18H26Z" fill="black" />
+                    </svg>
+
+                    <span class="scaricabili__wrap__repeater__item__link__info">
+                      <span class="scaricabili__wrap__repeater__item__link__info__title"><?php echo esc_html($testo_file); ?></span>
+                      <span class="scaricabili__wrap__repeater__item__link__info__meta"><?php echo esc_html($file_ext . ' | ' . $file_size); ?></span>
+                    </span>
+                  </a>
+                <?php endif; ?>
+              </div>
+
+            <?php
+            endwhile; ?>
+          </div>
+
+        <?php
+        endif; ?>
+      </div>
+    </section>
+
+    <?php get_template_part('template-parts/enti-block'); ?>
+
   </main>
 
   <?php get_template_part('template-parts/footer-block'); ?>

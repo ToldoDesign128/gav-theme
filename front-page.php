@@ -523,7 +523,7 @@ get_header(); ?>
                                 <li class="parte-item swiper-slide">
 
                                     <?php if ($link_rep_parte) : ?>
-                                        <a href="<?php echo esc_url($link_rep_parte_url); ?>" target="<?php echo esc_attr($link_rep_parte_target); ?>" class="collab-item__link">
+                                        <a href="<?php echo esc_url($link_rep_parte_url); ?>" target="<?php echo esc_attr($link_rep_parte_target); ?>" class="parte-item__link">
                                             <?php if ($image_rep_parte) : ?>
                                                 <img src="<?php echo esc_url($image_rep_parte['url']); ?>" alt="<?php echo esc_attr($image_rep_parte['alt']); ?>">
                                             <?php endif; ?>

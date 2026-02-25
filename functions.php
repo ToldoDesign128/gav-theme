@@ -145,6 +145,25 @@ if (function_exists('acf_add_options_page')) {
 	));
 }
 
+// Default: seleziona tutti gli enti nel campo Post Object "selettore_enti"
+add_filter('acf/load_value/name=selettore_enti', function ($value, $post_id, $field) {
+	// Se il campo ha già un valore salvato, non sovrascrivere
+	if (!empty($value)) {
+		return $value;
+	}
+
+	// Recupera tutti i post del CPT 'enti'
+	$enti = get_posts(array(
+		'post_type'      => 'enti',
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+		'orderby'        => 'menu_order',
+		'order'          => 'ASC',
+	));
+
+	return !empty($enti) ? $enti : $value;
+}, 10, 3);
+
 // Functions Parts
 require get_template_directory() . '/functions-parts/cpt-collaborazioni.php';
 require get_template_directory() . '/functions-parts/cpt-enti.php';

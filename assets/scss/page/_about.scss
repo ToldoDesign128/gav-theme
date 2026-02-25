@@ -5,13 +5,13 @@
 .about {
   width: 100%;
   height: auto;
-  padding: 90px 0;
+  padding: 90px 0 0 0;
 
   @include v.respond-to(xl) {
-    padding: 110px 0;
+    padding: 110px 0 0 0;
   }
   @include v.respond-to(xxl) {
-    padding: 120px 0;
+    padding: 120px 0 0 0;
   }
 
   .valori {
@@ -767,7 +767,7 @@
     }
   }
 
-  .governance{
+  .governance {
     width: 100%;
     padding: 60px 20px;
 
@@ -775,7 +775,7 @@
       padding: 90px 0px;
     }
 
-    &__wrap{
+    &__wrap {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -802,11 +802,11 @@
           font-size: clamp(30px, 22px + 2vw, 48px);
           font-weight: 700;
         }
-        &__image{
+        &__image {
           width: 100%;
           border-radius: 16px;
           overflow: hidden;
-          
+
           @include v.respond-to(md) {
             width: 80%;
           }
@@ -823,7 +823,7 @@
         }
       }
 
-      &__content{
+      &__content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -835,33 +835,246 @@
           gap: 60px;
         }
 
-        &__col{
+        &__col {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 20px;
 
-          &__title{
+          &__title {
             color: v.$black;
             font-size: clamp(18px, 14px + 1vw, 24px);
             font-weight: 700;
             text-align: center;
           }
-          &__text{
+          &__text {
             color: v.$black;
             font-size: clamp(14px, 10px + 1vw, 18px);
             text-align: center;
 
-            p{
+            p {
               padding-bottom: 20px;
             }
 
-            strong{
+            strong {
               font-weight: 700;
             }
           }
         }
       }
     }
+  }
+
+  .leader {
+    width: 100%;
+    padding: 60px 20px;
+    background-color: v.$verde-200;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 70px;
+      }
+
+      &__intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        @include v.respond-to(xl) {
+          gap: 30px;
+        }
+
+        &__title {
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+        }
+      }
+
+      &__cards {
+        max-width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+
+        @include v.respond-to(xl) {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 80px 60px;
+        }
+
+        &__item {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+
+          @include v.respond-to(md) {
+            width: calc(50% - 30px);
+          }
+
+          @include v.respond-to(xl) {
+            width: auto;
+            grid-column: span 2;
+          }
+
+          &:first-child {
+            @include v.respond-to(xl) {
+              grid-column: 2 / span 2;
+            }
+          }
+
+          &:nth-child(2) {
+            @include v.respond-to(xl) {
+              grid-column: 4 / span 2;
+            }
+          }
+
+          &__image {
+            width: 100%;
+            aspect-ratio: 6 / 5;
+            overflow: hidden;
+            border-radius: 12px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          &__content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            &__name {
+              font-size: clamp(16px, 14px + 0.5vw, 20px);
+              font-weight: 700;
+              color: v.$black;
+            }
+
+            &__role {
+              font-size: clamp(14px, 12px + 0.5vw, 16px);
+              font-weight: 400;
+              color: v.$black;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .scaricabili{
+    width: 100%;
+    padding: 60px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 70px;
+      }
+
+      &__intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+
+        @include v.respond-to(xl) {
+          gap: 30px;
+        }
+
+        &__title {
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+        }
+      }
+
+      &__repeater {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+        max-width: 800px;
+
+        @include v.respond-to(md) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__item {
+          &__link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background-color: v.$verde-200;
+            border-radius: 16px;
+            text-decoration: none;
+            color: v.$black;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+              background-color: v.$verde-300;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            }
+
+            svg {
+              flex-shrink: 0;
+              width: 40px;
+              height: 40px;
+            }
+
+            &__info {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+
+              &__title {
+                font-size: 16px;
+                font-weight: 600;
+                color: v.$black;
+              }
+
+              &__meta {
+                font-size: 14px;
+                font-weight: 400;
+                color: v.$dark-gray;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .parte-block{
+    background-color: hsla(0, 0%, 99%, 1);
   }
 }
