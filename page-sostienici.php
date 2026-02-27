@@ -6,7 +6,7 @@
   */
 get_header(); ?>
 
-<body <?php body_class('theme-azzurro '); ?>>
+<body <?php body_class('theme-blue '); ?>>
 
   <?php get_template_part('template-parts/header-block'); ?>
 

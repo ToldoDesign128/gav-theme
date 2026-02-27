@@ -1,0 +1,28 @@
+// Collaborazioni Page Styles
+
+@use "/assets/scss/variable/variable" as v;
+
+.collaborazioni {
+  width: 100%;
+  height: auto;
+  padding: 90px 0 0 0;
+
+  @include v.respond-to(xl) {
+    padding: 110px 0 0 0;
+  }
+  @include v.respond-to(xxl) {
+    padding: 120px 0 0 0;
+  }
+
+  .collaborazioni-block {
+    padding: 40px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0;
+    }
+  }
+
+  .parte-block {
+    background-color: v.$viola-100;
+  }
+}

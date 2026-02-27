@@ -32,7 +32,7 @@ function progetti()
                 'slug'              =>          'progetti',
                 'with-front'        =>          false,
             ),
-            'has_archive'           =>          true,
+            'has_archive'           =>          false,
             'taxonomies'            =>          array(''),
             'capability_type'       =>          'post',
             'hierarchical'          =>          false,

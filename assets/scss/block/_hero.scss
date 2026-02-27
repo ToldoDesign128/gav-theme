@@ -197,25 +197,25 @@
   }
 }
 
-.theme-azzurro {
+.theme-blue {
   .hero{
     &__wrap{
         &__content{
             &__cta{
-                color: v.$azzurro-300;
-                border-color: v.$azzurro-300;
+                color: v.$blue-300;
+                border-color: v.$blue-300;
 
                 @include v.respond-to(xl){
                     &:hover{
                         color: v.$white;
-                        background-color: v.$azzurro-300;
+                        background-color: v.$blue-300;
                     }
                 }
             }
         }
         &__image{
             span{
-                background-color: v.$azzurro-300;
+                background-color: v.$blue-300;
             }
         }
     }

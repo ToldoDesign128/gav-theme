@@ -366,9 +366,9 @@
   }
 }
 
-.theme-azzurro {
+.theme-viola {
   .footer {
-    background-color: v.$azzurro-200;
+    background-color: v.$viola-200;
 
     &__wrap {
       &__form {
@@ -376,13 +376,13 @@
           .wpcf7-form {
             p {
               .wpcf7-submit {
-                color: v.$azzurro-300 !important;
-                border-color: v.$azzurro-300 !important;
+                color: v.$viola-300 !important;
+                border-color: v.$viola-300 !important;
 
                 @include v.respond-to(xl) {
                   &:hover {
                     color: v.$white !important;
-                    background-color: v.$azzurro-300 !important;
+                    background-color: v.$viola-300 !important;
                     border-color: v.$white !important;
                   }
                 }

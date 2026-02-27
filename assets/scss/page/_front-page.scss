@@ -689,5 +689,11 @@
 
   .parte-block {
     background-color: v.$blue-100;
+
+    .swiper-pagination{
+        .swiper-pagination-bullet-active {
+          background-color: v.$blue-300;
+        }
+    }
   }
 }

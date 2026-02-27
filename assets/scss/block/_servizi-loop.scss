@@ -22,6 +22,21 @@
     font-weight: 700;
   }
 
+  &__text {
+    margin-bottom: 20px;
+    font-size: clamp(16px, 12px + 1vw, 20px);
+    text-align: center;
+    
+    @include v.respond-to(md) {
+      max-width: 80%;
+      margin-bottom: 30px;
+    }
+      @include v.respond-to(xl) {
+        max-width: 70%;
+        margin-bottom: 40px;
+      }
+  }
+
   &__loop {
     width: 100%;
     display: grid;
@@ -72,7 +87,7 @@
 
       &.rosa,
       &.giallo,
-      &.azzurro,
+      &.blue,
       &.verde,
       &.viola {
         transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -92,11 +107,11 @@
           background-color: v.$giallo-200;
         }
       }
-      &.azzurro {
-        background-color: v.$azzurro-300;
+      &.blue {
+        background-color: v.$blue-300;
 
         @include v.respond-to(xl) {
-          background-color: v.$azzurro-200;
+          background-color: v.$blue-200;
         }
       }
       &.verde {
@@ -128,8 +143,8 @@
           &.giallo {
             background-color: v.$giallo-300;
           }
-          &.azzurro {
-            background-color: v.$azzurro-300;
+          &.blue {
+            background-color: v.$blue-300;
           }
           &.verde {
             background-color: v.$verde-300;

@@ -1,11 +1,13 @@
 <?php
-$attiva_blocco_enti = get_field('attiva_blocco_enti');
+$page_id = get_queried_object_id();
+
+$attiva_blocco_enti = get_field('attiva_blocco_enti', $page_id);
 if ($attiva_blocco_enti === 'Attivo') : ?>
     <section class="parte-block">
         <div class="parte-block__wrap container">
             <div class="parte-block__wrap__intro">
                 <?php
-                $title_parte = get_field('titolo_siamo_home');
+                $title_parte = get_field('titolo_enti', 'option');
                 if ($title_parte) : ?>
                     <p class="parte-block__wrap__intro__title"><?php echo esc_html($title_parte); ?></p>
                 <?php endif; ?>
