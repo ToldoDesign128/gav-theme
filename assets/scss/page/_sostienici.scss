@@ -370,6 +370,7 @@
             @include v.respond-to(xl) {
               &:hover {
                 opacity: 0.8;
+                transform: scale(0.98);
               }
             }
           }
@@ -391,6 +392,7 @@
           @include v.respond-to(xl) {
             &:hover {
               opacity: 0.8;
+              transform: scale(0.98);
             }
           }
         }

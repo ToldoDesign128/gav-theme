@@ -83,6 +83,20 @@ window.addEventListener('load', function () {
         });
     }
 
+    // News Slider
+    if (document.querySelector('.swiperNews')) {
+        new Swiper('.swiperNews', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+
+            navigation: {
+                nextEl: '.swiperNews-next',
+                prevEl: '.swiperNews-prev',
+            },
+        });
+    }
+
     // Storia (coverflow gallery)
     if (document.querySelector('.swiperStoria')) {
         new Swiper('.swiperStoria', {

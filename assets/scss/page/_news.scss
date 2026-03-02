@@ -1,0 +1,453 @@
+// News Styles
+
+@use "/assets/scss/variable/variable" as v;
+
+.page-blog {
+  width: 100%;
+  height: auto;
+  padding: 90px 0 0 0;
+
+  @include v.respond-to(xl) {
+    padding: 110px 0 0 0;
+  }
+  @include v.respond-to(xxl) {
+    padding: 120px 0 0 0;
+  }
+
+  .hero-blog {
+    padding: 40px 20px 60px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 40px 0 100px 0;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+
+      &__title {
+        color: v.$black;
+        font-size: clamp(28px, 20px + 2vw, 48px);
+        font-weight: 700;
+        text-align: center;
+      }
+
+      &__text {
+        color: v.$black;
+        font-size: clamp(14px, 10px + 1vw, 18px);
+        line-height: 1.6;
+        text-align: center;
+        max-width: 90%;
+
+        @include v.respond-to(lg) {
+          max-width: 70%;
+        }
+        @include v.respond-to(xl) {
+          max-width: 60%;
+        }
+      }
+
+      &__list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        a {
+          opacity: 1;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          @include v.respond-to(xl) {
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // News Slider Section
+  .news {
+    width: 100%;
+    padding: 0 20px 60px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 0 0 90px 0;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      @include v.respond-to(xl) {
+        gap: 30px;
+      }
+
+      .swiperNews {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: v.$black;
+          display: none;
+
+          @include v.respond-to(lg) {
+            display: flex;
+          }
+        }
+      }
+
+      &__slide {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include v.respond-to(lg) {
+          flex-direction: row;
+          align-items: stretch;
+          min-height: 380px;
+        }
+
+        &__content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          padding: 30px 24px;
+
+          @include v.respond-to(lg) {
+            padding: 50px 20px 50px 60px;
+            justify-content: center;
+          }
+
+          @include v.respond-to(xl) {
+            padding: 60px 30px 60px 80px;
+          }
+
+          &__date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: v.$dark-gray;
+            font-size: clamp(12px, 8px + 1vw, 14px);
+
+            svg {
+              width: 18px;
+              height: 18px;
+              flex-shrink: 0;
+            }
+          }
+
+          &__title {
+            color: v.$black;
+            font-size: clamp(20px, 14px + 1.5vw, 32px);
+            font-weight: 700;
+            line-height: 1.2;
+          }
+
+          &__excerpt {
+            color: v.$black;
+            font-size: clamp(14px, 10px + 1vw, 16px);
+            line-height: 1.6;
+          }
+        }
+
+        &__image {
+          width: 100%;
+          aspect-ratio: 16 / 10;
+          overflow: hidden;
+
+          @include v.respond-to(lg) {
+            width: 45%;
+            padding: 50px 60px 50px 20px;
+            aspect-ratio: auto;
+            flex-shrink: 0;
+          }
+
+          @include v.respond-to(xl) {
+            padding: 60px 80px 60px 30px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            overflow: hidden;
+          }
+        }
+      }
+
+      // All posts expandable
+      &__all {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        &.is-open {
+          max-height: 5000px;
+          transition: max-height 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        &__item {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px 0;
+
+          &:first-child {
+            padding-top: 0;
+          }
+          &:last-child {
+            border-bottom: none;
+          }
+
+          @include v.respond-to(lg) {
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 0;
+          }
+
+          &--reverse {
+            @include v.respond-to(lg) {
+              flex-direction: row;
+            }
+          }
+
+          &__content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            &__date {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              color: v.$dark-gray;
+              font-size: clamp(12px, 8px + 1vw, 14px);
+
+              svg {
+                width: 18px;
+                height: 18px;
+                flex-shrink: 0;
+              }
+            }
+
+            &__title {
+              color: v.$black;
+              font-size: clamp(20px, 14px + 1.5vw, 28px);
+              font-weight: 700;
+              line-height: 1.2;
+            }
+
+            &__excerpt {
+              color: v.$black;
+              font-size: clamp(14px, 10px + 1vw, 16px);
+              line-height: 1.6;
+            }
+          }
+
+          &__image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            border-radius: 12px;
+            flex-shrink: 0;
+
+            @include v.respond-to(lg) {
+              width: 40%;
+              aspect-ratio: 4 / 3;
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+
+      &__cta {
+        &__link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 14px 28px;
+          background-color: v.$verde-300;
+          color: v.$white;
+          border: none;
+          border-radius: 8px;
+          font-size: clamp(14px, 10px + 1vw, 16px);
+          font-weight: 600;
+          text-decoration: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &__less {
+            display: none;
+          }
+
+          svg {
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+          }
+
+          &.is-open {
+            .news__wrap__cta__link__more {
+              display: none;
+            }
+            .news__wrap__cta__link__less {
+              display: inline;
+            }
+            svg {
+              transform: rotate(180deg);
+            }
+          }
+
+          @include v.respond-to(xl) {
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .social {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: v.$verde-100;
+
+    @include v.respond-to(xl) {
+      padding: 90px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
+
+      &__intro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__title {
+          text-align: center;
+          color: v.$black;
+          font-size: clamp(24px, 16px + 2vw, 36px);
+          font-weight: 700;
+        }
+      }
+
+      &__links {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        @include v.respond-to(xl) {
+          flex-direction: row;
+        }
+
+        &__item {
+          width: 100%;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          aspect-ratio: 1;
+          border-radius: 16px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            object-fit: cover;
+            filter: opacity(0.6);
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+          }
+          &:first-child {
+            img {
+              filter: opacity(0.6) hue-rotate(315deg);
+
+              @include v.respond-to(xl) {
+                filter: none;
+              }
+            }
+          }
+          &:last-child {
+            img {
+              filter: opacity(0.6) hue-rotate(180deg);
+
+              @include v.respond-to(xl) {
+                filter: none;
+              }
+            }
+          }
+          svg {
+            position: absolute;
+            z-index: 10;
+            width: 120px;
+            height: 120px;
+            transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+            @include v.respond-to(xl) {
+              width: 150px;
+              height: 150px;
+              opacity: 0;
+            }
+
+            path {
+              fill: v.$white;
+            }
+          }
+
+          @include v.respond-to(xl) {
+            width: calc(50% - 15px);
+            aspect-ratio: 5 / 6;
+
+            &:hover {
+              &:first-child {
+                img {
+                  filter: opacity(0.6) hue-rotate(315deg);
+                }
+              }
+              &:last-child {
+                img {
+                  filter: opacity(0.6) hue-rotate(180deg);
+                }
+              }
+
+              svg {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .parte-block {
+    background-color: v.$white;
+  }
+}
