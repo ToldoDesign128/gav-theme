@@ -37,7 +37,7 @@ get_header(); ?>
         <?php if ($collaborazioni_loop->have_posts()) : while ($collaborazioni_loop->have_posts()) : $collaborazioni_loop->the_post(); ?>
 
             <?php
-            $radio_value = get_field('selettore_colore_collaborazioni');
+            $radio_value = get_field('selettore_colore_collab');
             // Normalizza il valore: minuscolo multibyte, spazi -> trattini, poi sanitizza
             $radio_slug = '';
             if ($radio_value) {
