@@ -1,0 +1,136 @@
+// Documenti Style
+
+@use "/assets/scss/variable/variable" as v;
+
+.documenti {
+  width: 100%;
+  height: auto;
+  padding: 90px 0 0 0;
+
+  @include v.respond-to(xl) {
+    padding: 110px 0 0 0;
+  }
+  @include v.respond-to(xxl) {
+    padding: 120px 0 0 0;
+  }
+
+  &__content {
+    padding: 40px 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+
+    @include v.respond-to(md) {
+        padding: 60px 0 80px 0;
+      gap: 40px;
+    }
+    @include v.respond-to(xl) {
+        padding: 60px 0 120px 0;
+    }
+
+    &__title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+
+      @include v.respond-to(xl) {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 0 auto;
+
+      @include v.respond-to(md) {
+        max-width: 90%;
+      }
+      @include v.respond-to(lg) {
+        max-width: 80%;
+      }
+      @include v.respond-to(xl) {
+        max-width: 70%;
+      }
+
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        border-bottom: 1px solid v.$blue-200;
+
+        &:last-child {
+          border: none;
+        }
+
+
+        &--multiplo {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+
+        &__title {
+          font-size: 1rem;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+
+          @include v.respond-to(xl) {
+            font-size: 1.125rem;
+          }
+        }
+
+        &__select {
+          appearance: none;
+          padding: 10px 36px 10px 14px;
+          border-radius: 10px;
+          border: 1px solid v.$blue-200;
+          font-family: v.$primary-font;
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: v.$black;
+          background-color: v.$white;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 12px center;
+          cursor: pointer;
+          min-width: 160px;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: v.$viola-300;
+          }
+        }
+
+        &__btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 24px;
+          border-radius: 10px;
+          background-color: v.$viola-300;
+          color: v.$white;
+          font-size: 0.875rem;
+          font-weight: 500;
+          text-decoration: none;
+          white-space: nowrap;
+          transition: all 0.3s ease;
+
+          @include v.respond-to(xl) {
+            &:hover {
+              opacity: 0.9;
+              transform: scale(0.98);
+            }
+          }
+        }
+      }
+    }
+  }
+}

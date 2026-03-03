@@ -6,7 +6,7 @@
   */
 get_header(); ?>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('theme-fucsia'); ?>>
 
   <?php get_template_part('template-parts/header-block'); ?>
 
@@ -16,6 +16,8 @@ get_header(); ?>
     </section>
     <section class="placeholder">
     </section>
+
+    <?php get_template_part('template-parts/enti-block'); ?>
 
   </main>
 

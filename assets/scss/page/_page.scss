@@ -3,7 +3,10 @@
 @use "/assets/scss/variable/variable" as v;
 
 @forward "about";
+@forward "area";
 @forward "collaborazioni";
+@forward "contatti";
+@forward "documenti";
 @forward "front-page";
 @forward "news";
 @forward "servizi";
