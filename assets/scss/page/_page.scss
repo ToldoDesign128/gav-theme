@@ -2,6 +2,7 @@
 
 @use "/assets/scss/variable/variable" as v;
 
+@forward "404";
 @forward "about";
 @forward "area";
 @forward "collaborazioni";
@@ -12,3 +13,4 @@
 @forward "servizi";
 @forward "sostienici";
 @forward "progetti";
+@forward "search";

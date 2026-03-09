@@ -170,3 +170,5 @@ require get_template_directory() . '/functions-parts/cpt-enti.php';
 require get_template_directory() . '/functions-parts/cpt-giornalino.php';
 require get_template_directory() . '/functions-parts/cpt-progetti.php';
 require get_template_directory() . '/functions-parts/cpt-servizi.php';
+
+require get_template_directory() . '/functions-parts/ajax-search.php';

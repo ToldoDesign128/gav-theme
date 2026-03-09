@@ -1,0 +1,78 @@
+// 404 Style
+
+@use "/assets/scss/variable/variable" as v;
+
+.error {
+  &__content {
+    width: 100%;
+    height: 100dvh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    @include v.respond-to(lg) {
+      padding: 0;
+      flex-direction: row;
+      gap: 60px;
+    }
+
+    &__info {
+      order: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @include v.respond-to(lg) {
+        order: 1;
+        width: calc(50% - 30px);
+      }
+
+      h1 {
+        color: v.$dark-gray;
+        font-size: clamp(28px, 20px + 2vw, 48px);
+        font-weight: 700;
+      }
+      p {
+        color: v.$black;
+        font-size: clamp(14px, 10px + 1vw, 18px);
+
+        @include v.respond-to(lg) {
+          max-width: 80%;
+        }
+        @include v.respond-to(xl) {
+          max-width: 70%;
+        }
+      }
+
+      .primary-btn {
+        color: v.$blue-300;
+        border-color: v.$blue-300;
+
+        @include v.respond-to(xl) {
+          &:hover {
+            color: v.$white;
+            background-color: v.$blue-300;
+          }
+        }
+      }
+    }
+    &__image {
+      order: 1;
+      width: 100%;
+
+      @include v.respond-to(lg) {
+        order: 2;
+        width: calc(50% - 30px);
+      }
+
+      svg{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
