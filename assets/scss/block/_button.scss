@@ -2,7 +2,7 @@
 
 @use "/assets/scss/variable/variable" as v;
 
-.primary-btn{
+.primary-btn, .secondary-btn {
     width: fit-content;
     display: flex;
     align-items: center;

@@ -25,6 +25,28 @@ get_header(); ?>
       <?php endif; ?>
 
       <div class="progetti-block__loop">
+
+        <?php
+        $link_giornalino = get_field('link_giornalino_progetti');
+        $image_giornalino = get_field('image_giornalino_progetti');
+
+        if ($link_giornalino) {
+          $link_giornalino_url = $link_giornalino['url'];
+          $link_giornalino_title = $link_giornalino['title'];
+          $link_giornalino_target = $link_giornalino['target'] ? $link_giornalino['target'] : '_self';
+        }; ?>
+
+        <article class="progetti-block__loop__item giallo">
+          <a href="<?php echo esc_url($link_giornalino_url); ?>" target="<?php echo esc_attr($link_giornalino_target); ?>" class="progetti-block__loop__item__link">
+            <div class="progetti-block__loop__item__link__image">
+              <?php if ($image_giornalino) : ?>
+                <img src="<?php echo esc_url($image_giornalino['url']); ?>" alt="<?php echo esc_attr($image_giornalino['alt']); ?>">
+              <?php endif; ?>
+            </div>
+            <p class="progetti-block__loop__item__link__title"><?php echo esc_html($link_giornalino_title); ?></p>
+          </a>
+        </article>
+
         <?php /* progetti Loop */
 
         $progetti_loop = new WP_Query(array(

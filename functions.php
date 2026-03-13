@@ -167,7 +167,6 @@ add_filter('acf/load_value/name=selettore_enti', function ($value, $post_id, $fi
 // Functions Parts
 require get_template_directory() . '/functions-parts/cpt-collaborazioni.php';
 require get_template_directory() . '/functions-parts/cpt-enti.php';
-require get_template_directory() . '/functions-parts/cpt-giornalino.php';
 require get_template_directory() . '/functions-parts/cpt-progetti.php';
 require get_template_directory() . '/functions-parts/cpt-servizi.php';
 

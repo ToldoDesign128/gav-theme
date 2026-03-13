@@ -1,0 +1,19 @@
+// Edizioni
+
+@use "/assets/scss/variable/variable" as v;
+
+.edizioni {
+  width: 100%;
+  height: auto;
+  padding: 90px 0 0 0;
+
+  @include v.respond-to(xl) {
+    padding: 110px 0 0 0;
+  }
+  @include v.respond-to(xxl) {
+    padding: 120px 0 0 0;
+  }
+
+   
+
+}
