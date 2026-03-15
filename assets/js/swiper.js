@@ -122,4 +122,13 @@ window.addEventListener('load', function () {
             },
         });
     }
+
+    // Obiettivi
+    if (document.querySelector('.swiperObiettivi')) {
+        new Swiper('.swiperObiettivi', {
+            slidesPerView: 1.5,
+            spaceBetween: 32,
+            centeredSlides: true,
+        });
+    }
 });

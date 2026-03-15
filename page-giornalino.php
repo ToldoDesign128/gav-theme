@@ -78,11 +78,136 @@ get_header(); ?>
 
     </section>
 
+    <section class="giornalino__txt-img container">
+      <div class="giornalino__txt-img__wrap">
 
+        <?php
+        if (have_rows('repeater_text_img')):
+          while (have_rows('repeater_text_img')) : the_row();
+            $orientamento = get_sub_field('orientamento');
+            $testo = get_sub_field('testo');
+            $image = get_sub_field('image'); ?>
 
-    <section class="placeholder">
+            <?php if ($orientamento == 'text + img') : ?>
+              <div class="giornalino__txt-img__wrap__item">
+                <div class="giornalino__txt-img__wrap__item__text">
+                  <?php echo $testo; ?>
+                </div>
+                <?php if ($image) : ?>
+                  <div class="giornalino__txt-img__wrap__item__img">
+                    <span></span>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                    <span></span>
+                  </div>
+                <?php endif; ?>
+              </div>
+
+            <?php elseif ($orientamento == 'img + text') : ?>
+
+              <div class="giornalino__txt-img__wrap__item">
+                <?php if ($image) : ?>
+                  <div class="giornalino__txt-img__wrap__item__img">
+                    <span></span>
+                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                    <span></span>
+                  </div>
+                <?php endif; ?>
+                <div class="giornalino__txt-img__wrap__item__text">
+                  <?php echo $testo; ?>
+                </div>
+              </div>
+            <?php endif ?>
+
+        <?php
+          endwhile;
+        endif; ?>
+
+      </div>
     </section>
-    <section class="placeholder">
+
+    <section class="giornalino__obiettivi">
+      <div class="giornalino__obiettivi__wrap container">
+        <?php
+        $titolo_obiettivi = get_field('titolo_obiettivi_giornalino');
+        if ($titolo_obiettivi) : ?>
+          <h2 class="giornalino__obiettivi__wrap__title"><?php echo esc_html($titolo_obiettivi); ?></h2>
+        <?php endif; ?>
+
+        <?php
+        if (have_rows('repeater_obiettivi_giornalino')): ?>
+
+          <div class="giornalino__obiettivi__wrap__list-mobile swiperObiettivi">
+            <div class="swiper-wrapper">
+
+              <?php
+              while (have_rows('repeater_obiettivi_giornalino')) : the_row();
+                $text = get_sub_field('text'); ?>
+
+                <div class="giornalino__obiettivi__wrap__list__item swiper-slide">
+                  <span class="icon">
+                    <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M11.4084 20.4972L6.12251 15.2113L4.32251 16.9986L11.4084 24.0845L26.6197 8.87326L24.8324 7.08594L11.4084 20.4972Z" fill="#0A0A0A" />
+                    </svg>
+                  </span>
+                  <?php echo $text; ?>
+                </div>
+
+              <?php
+              endwhile; ?>
+            </div>
+
+          </div>
+        <?php
+        endif; ?>
+
+        <?php
+        if (have_rows('repeater_obiettivi_giornalino')): ?>
+          <div class="giornalino__obiettivi__wrap__list-desktop">
+            <?php
+            while (have_rows('repeater_obiettivi_giornalino')) : the_row();
+              $text = get_sub_field('text'); ?>
+
+              <div class="giornalino__obiettivi__wrap__list__item ">
+                <span class="icon">
+                  <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.4084 20.4972L6.12251 15.2113L4.32251 16.9986L11.4084 24.0845L26.6197 8.87326L24.8324 7.08594L11.4084 20.4972Z" fill="#0A0A0A" />
+                  </svg>
+                </span>
+                <?php echo $text; ?>
+              </div>
+
+            <?php
+            endwhile; ?>
+          </div>
+        <?php
+        endif; ?>
+
+      </div>
+    </section>
+
+    <section class="risultati">
+      <div class="risultati__wrap container">
+        <?php
+        $titolo_risultato = get_field('titolo_risultati_giornalino');
+        if ($titolo_risultato) : ?>
+          <h3 class="risultati__wrap__title"><?php echo esc_html($titolo_risultato); ?></h3>
+        <?php endif; ?>
+
+        <?php if (have_rows('repeater_risultati_giornalino')): ?>
+          <div class="risultati__wrap__list">
+
+            <?php while (have_rows('repeater_risultati_giornalino')) : the_row();
+              $text = get_sub_field('text'); ?>
+
+              <div class="risultati__wrap__list__item">
+                <?php echo $text; ?>
+              </div>
+
+            <?php endwhile; ?>
+          </div>
+        <?php endif; ?>
+
+      </div>
     </section>
 
     <section class="slider container">
