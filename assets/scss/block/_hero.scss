@@ -97,7 +97,7 @@
     }
 }
 
-.theme-blue {
+.theme-viola {
   .hero{
     &__wrap{
         &__content{
@@ -108,14 +108,14 @@
                 @include v.respond-to(xl){
                     &:hover{
                         color: v.$white;
-                        background-color: v.$blue-300;
+                        background-color: v.$viola-300;
                     }
                 }
             }
         }
         &__image{
             span{
-                background-color: v.$blue-300;
+                background-color: v.$viola-300;
             }
         }
     }

@@ -1,23 +1,19 @@
 <?php
-get_header(); ?>
+get_header();
 
-<body <?php body_class(); ?>>
+$colore_servizio = get_field('selettore_colore_servizi');
+$theme_class = $colore_servizio ? 'theme-' . sanitize_title($colore_servizio) : '';
+?>
+
+<body <?php body_class($theme_class); ?>>
 
     <?php get_template_part('template-parts/header-block'); ?>
 
-    <main class="single-servizi">
-
-        <section class="placeholder">
-        </section>
+    <main class="servizi-template">
 
         <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-        <section class="hero">
-
-        </section>
-
-        <section class="placeholder">
-        </section>
+        <?php get_template_part('template-parts/builder/builder-servizi'); ?>
 
     </main>
 
