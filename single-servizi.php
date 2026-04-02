@@ -13,7 +13,11 @@ $theme_class = $colore_servizio ? 'theme-' . sanitize_title($colore_servizio) : 
 
         <?php get_template_part('template-parts/breadcrumbs'); ?>
 
+        <?php get_template_part('template-parts/background'); ?>
+
         <?php get_template_part('template-parts/builder/builder-servizi'); ?>
+
+        <?php get_template_part('template-parts/enti-block'); ?>
 
     </main>
 

@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="hero container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="hero container position">
       <?php
       $titolo_hero = get_field('titolo_hero_about');
       $testo_hero = get_field('testo_hero_about');
@@ -55,7 +57,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="valori container">
+    <section class="valori container position">
       <?php
       $titolo_valori = get_field('titolo_valori_about');
       $testo_valori = get_field('testo_valori_about'); ?>
@@ -117,7 +119,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="mission">
+    <section class="mission position">
       <div class="mission__wrap container">
         <?php
         $titolo_mission = get_field('titolo_mission_about');
@@ -138,7 +140,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="principi container">
+    <section class="principi container position">
       <?php
       $titolo_principi = get_field('titolo_principi_about');
       $testo_principi = get_field('testo_principi_about'); ?>
@@ -192,7 +194,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="obiettivi">
+    <section class="obiettivi position">
       <?php
       $titolo_obiettivi = get_field('titolo_obietitvi_about');
       $testo_obiettivi = get_field('testo_obietitvi_about'); ?>
@@ -238,7 +240,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="storia container">
+    <section class="storia container position">
       <div class="storia__wrap">
         <h4 class="storia__wrap__title">
           <?php
@@ -303,7 +305,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="logo container">
+    <section class="logo container position">
       <div class="logo__wrap">
         <?php
         $titolo_logo = get_field('titolo_logo_about');
@@ -344,7 +346,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="parte-block">
+    <section class="parte-block position">
       <div class="parte-block__wrap container">
         <div class="parte-block__wrap__intro">
           <?php
@@ -404,7 +406,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="soci">
+    <section class="soci position">
       <?php
       $titolo_soci = get_field('titolo_cooperativa_about');
       $titolo_soci_2 = get_field('titolo_soci_about');
@@ -462,7 +464,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="grafici">
+    <section class="grafici position">
       <?php
       $titolo_grafici = get_field('titolo_soci_2_about');
       $colors = ['#fdc553', '#3d6b4f', '#7390dd'];
@@ -522,7 +524,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="governance container">
+    <section class="governance container position">
       <div class="governance__wrap">
         <?php
         $title_gov = get_field('titolo_governance_about');
@@ -575,7 +577,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="leader">
+    <section class="leader position">
       <div class="leader__wrap container">
 
         <div class="leader__wrap__intro">
@@ -636,7 +638,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="scaricabili container">
+    <section class="scaricabili container position">
       <div class="scaricabili__wrap">
 
         <div class="scaricabili__wrap__intro">

@@ -19,7 +19,9 @@ get_header(); ?>
             </ul>
         </nav>
 
-        <section class="hero-blog container">
+        <?php get_template_part('template-parts/background'); ?>
+
+        <section class="hero-blog container position">
             <?php
             $title_hero = get_field('titolo_news', $page_id);
             $text_hero = get_field('testo_news', $page_id); ?>
@@ -65,7 +67,7 @@ get_header(); ?>
 
         </section>
 
-        <section class="news">
+        <section class="news position">
             <div class="news__wrap container">
                 <?php
                 $sticky_posts = get_option('sticky_posts');
@@ -179,7 +181,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="social">
+        <section class="social position">
             <div class="social__wrap container">
                 <div class="social__wrap__intro">
                     <?php

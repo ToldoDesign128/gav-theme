@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="area-hero container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="area-hero container position">
       <div class="area-hero__block">
         <?php
         $logo = get_field('logo_area');
@@ -53,7 +55,7 @@ get_header(); ?>
       <?php endif; ?>
     </section>
 
-    <section class="scarica">
+    <section class="scarica position">
       <div class="scarica__wrap container">
 
         <?php if (have_rows('repeater_scaricabili')) : ?>

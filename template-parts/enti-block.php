@@ -3,7 +3,7 @@ $page_id = get_queried_object_id();
 
 $attiva_blocco_enti = get_field('attiva_blocco_enti', $page_id);
 if ($attiva_blocco_enti === 'Attivo') : ?>
-    <section class="parte-block">
+    <section class="parte-block position">
         <div class="parte-block__wrap container">
             <div class="parte-block__wrap__intro">
                 <?php

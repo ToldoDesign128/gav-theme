@@ -131,4 +131,26 @@ window.addEventListener('load', function () {
             centeredSlides: true,
         });
     }
+
+    // Testimonianze
+    if (document.querySelector('.swiperTestimonianze')) {
+        new Swiper('.swiperTestimonianze', {
+            slidesPerView: 1,
+            spaceBetween: 32,
+
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 48,
+                },
+                1280: {
+                    slidesPerView: 3,
+                    spaceBetween: 64,
+                },
+            },
+        });
+    };
 });

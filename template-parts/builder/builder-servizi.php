@@ -3,7 +3,7 @@
 // Check value exists.
 if (have_rows('builder_servizi')): ?>
 
-    <section class="builder-servizi">
+    <section class="builder-servizi position">
 
         <?php
         while (have_rows('builder_servizi')) : the_row();

@@ -3,7 +3,7 @@
 // Check value exists.
 if (have_rows('builder_collaborazioni_collab')): ?>
 
-    <section class="builder-collaborazioni">
+    <section class="builder-collaborazioni position">
 
         <?php
         while (have_rows('builder_collaborazioni_collab')) : the_row();
@@ -142,11 +142,6 @@ if (have_rows('builder_collaborazioni_collab')): ?>
                                         $text = get_sub_field('text'); ?>
 
                                         <div class="cards__wrap__list__item swiper-slide">
-                                            <span class="icon">
-                                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.4084 20.4972L6.12251 15.2113L4.32251 16.9986L11.4084 24.0845L26.6197 8.87326L24.8324 7.08594L11.4084 20.4972Z" fill="#0A0A0A" />
-                                                </svg>
-                                            </span>
                                             <?php echo $text; ?>
                                         </div>
 
@@ -166,11 +161,6 @@ if (have_rows('builder_collaborazioni_collab')): ?>
                                     $text = get_sub_field('text'); ?>
 
                                     <div class="cards__wrap__list__item">
-                                        <span class="icon">
-                                            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11.4084 20.4972L6.12251 15.2113L4.32251 16.9986L11.4084 24.0845L26.6197 8.87326L24.8324 7.08594L11.4084 20.4972Z" fill="#0A0A0A" />
-                                            </svg>
-                                        </span>
                                         <?php echo $text; ?>
                                     </div>
 
@@ -193,8 +183,11 @@ if (have_rows('builder_collaborazioni_collab')): ?>
 
                         <?php
                         if ($title_card_2) : ?>
-                            <p class="card-bg__wrap__title"><?php echo esc_html($title_card_2); ?></p>
+                            <p class="card-bg__wrap__title">
+                                <?php echo esc_html($title_card_2); ?>
+                            </p>
                         <?php endif; ?>
+
                         <?php
                         if ($testo_card_2) : ?>
                             <div class="card-bg__wrap__text">
@@ -202,22 +195,44 @@ if (have_rows('builder_collaborazioni_collab')): ?>
                             </div>
                         <?php endif; ?>
 
-                        <?php if (have_rows('repeater_card_bg')): ?>
-                            <div class="card-bg__wrap__list">
-                                <?php while (have_rows('repeater_card_bg')) : the_row();
+                        <?php
+                        if (have_rows('repeater_card_bg')): ?>
+
+                            <div class="card-bg__wrap__list-mobile swiperObiettivi">
+                                <div class="swiper-wrapper">
+
+                                    <?php
+                                    while (have_rows('repeater_card_bg')) : the_row();
+                                        $text = get_sub_field('text'); ?>
+
+                                        <div class="card-bg__wrap__list__item swiper-slide">
+                                            <?php echo $text; ?>
+                                        </div>
+
+                                    <?php
+                                    endwhile; ?>
+                                </div>
+
+                            </div>
+                        <?php
+                        endif; ?>
+
+                        <?php
+                        if (have_rows('repeater_card_bg')): ?>
+                            <div class="card-bg__wrap__list-desktop">
+                                <?php
+                                while (have_rows('repeater_card_bg')) : the_row();
                                     $text = get_sub_field('text'); ?>
 
                                     <div class="card-bg__wrap__list__item">
-                                        <?php if ($text) : ?>
-                                            <div class="card-bg__wrap__list__item__text">
-                                                <?php echo $text; ?>
-                                            </div>
-                                        <?php endif; ?>
+                                        <?php echo $text; ?>
                                     </div>
 
-                                <?php endwhile; ?>
+                                <?php
+                                endwhile; ?>
                             </div>
-                        <?php endif; ?>
+                        <?php
+                        endif; ?>
 
                     </div>
                 </div>
@@ -230,7 +245,70 @@ if (have_rows('builder_collaborazioni_collab')): ?>
 
                 <div class="step-block">
                     <div class="step-block__wrap container">
+                        <?php if ($title_step) : ?>
+                            <h2 class="step-block__wrap__title">
+                                <?php echo esc_html($title_step); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ($testo_step) : ?>
+                            <div class="step-block__wrap__text">
+                                <?php echo $testo_step; ?>
+                            </div>
+                        <?php endif; ?>
 
+                        <?php if (have_rows('repeater_step')) :
+                            $steps = [];
+                            while (have_rows('repeater_step')) : the_row();
+                                $steps[] = [
+                                    'titolo' => get_sub_field('titolo'),
+                                    'text'   => get_sub_field('text'),
+                                    'link'   => get_sub_field('link'),
+                                ];
+                            endwhile;
+                            $total = count($steps);
+                        ?>
+
+                            <!-- Stepper indicator -->
+                            <div class="step-block__wrap__stepper">
+                                <?php for ($i = 0; $i < $total; $i++) : ?>
+                                    <div class="step-block__wrap__stepper__step">
+                                        <span class="step-block__wrap__stepper__step__number"><?php echo $i + 1; ?></span>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+
+                            <!-- Step cards -->
+                            <div class="step-block__wrap__cards">
+                                <?php foreach ($steps as $index => $step) : ?>
+                                    <div class="step-block__wrap__cards__card">
+                                        <span class="step-block__wrap__cards__card__number"><?php echo $index + 1; ?></span>
+
+                                        <?php if ($step['titolo']) : ?>
+                                            <p class="step-block__wrap__cards__card__title">
+                                                <?php echo esc_html($step['titolo']); ?>
+                                            </p>
+                                        <?php endif; ?>
+
+                                        <?php if ($step['text']) : ?>
+                                            <div class="step-block__wrap__cards__card__text">
+                                                <?php echo $step['text']; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if ($step['link']) :
+                                            $link_url = $step['link']['url'];
+                                            $link_title = $step['link']['title'];
+                                            $link_target = $step['link']['target'] ? $step['link']['target'] : '_self';
+                                        ?>
+                                            <a class="step-block__wrap__cards__card__link" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+                                                <?php echo esc_html($link_title); ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -242,11 +320,35 @@ if (have_rows('builder_collaborazioni_collab')): ?>
 
                 <div class="testimonianze-block">
                     <div class="testimonianze-block__wrap container">
+                        <?php
+                        if ($title_testimonianze) : ?>
+                            <h2 class="testimonianze-block__wrap__title">
+                                <?php echo esc_html($title_testimonianze); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ($testo_testimonianze) : ?>
+                            <div class="testimonianze-block__wrap__text">
+                                <?php echo $testo_testimonianze; ?>
+                            </div>
+                        <?php endif; ?>
 
                         <?php if (have_rows('repeater_testimonianze')): ?>
-                            <?php while (have_rows('repeater_testimonianze')) : the_row(); ?>
-
-                            <?php endwhile; ?>
+                            <div class="testimonianze-block__wrap__list swiperTestimonianze">
+                                <div class="swiper-wrapper">
+                                    <?php while (have_rows('repeater_testimonianze')) : the_row();
+                                        $text = get_sub_field('text');
+                                        $nome = get_sub_field('nome'); ?>
+                                        <div class="testimonianze-block__wrap__list__item swiper-slide">
+                                            <div class="testimonianze-block__wrap__list__item__text">
+                                                <?php echo $text; ?>
+                                            </div>
+                                            <p class="testimonianze-block__wrap__list__item__nome">
+                                                <?php echo esc_html($nome); ?>
+                                            </p>
+                                        </div>
+                                    <?php endwhile; ?>
+                                </div>
+                            </div>
                         <?php endif; ?>
 
                     </div>

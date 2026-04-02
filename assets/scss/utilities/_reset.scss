@@ -61,3 +61,8 @@ a {
 .placeholder{
   min-height: 100vh;
 }
+
+.position{
+  position: relative;
+  z-index: 1;
+}

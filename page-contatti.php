@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="hero-contatti container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="hero-contatti container position">
       <?php
       $title = get_field('titolo_contatti');
       if ($title) : ?>
@@ -66,7 +68,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="maps-block container">
+    <section class="maps-block container position">
       <div class="maps-block__info">
         <?php
         $map_title = get_field('titolo_mappa_contatti');
@@ -85,7 +87,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="social-contatti">
+    <section class="social-contatti position">
       <div class="social-contatti__wrap container">
         <?php
         $title_social = get_field('titolo_social_contatti');

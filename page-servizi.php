@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="servizi-block container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="servizi-block container position">
       <?php
       $titolo_servizi = get_field('titolo_servizi');
       $testo_servizi = get_field('testo_servizi');

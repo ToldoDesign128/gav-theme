@@ -3,6 +3,8 @@
 @use "/assets/scss/variable/variable" as v;
 
 .breadcrumbs {
+    position: relative;
+    z-index: 1;
     padding: 10px 20px;
 
     @include v.respond-to(xl){

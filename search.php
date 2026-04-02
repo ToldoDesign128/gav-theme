@@ -14,8 +14,10 @@ get_header(); ?>
 
   <main class="page-search">
 
+  <?php get_template_part('template-parts/background'); ?>
+
     <!-- Search Section -->
-    <section class="search-section container">
+    <section class="search-section container position">
       <h1 class="search-section__title">Cosa stai cercando?</h1>
 
       <div class="search-section__bar-wrapper">
@@ -77,7 +79,7 @@ get_header(); ?>
       );
       $search_results = new WP_Query($search_args);
     ?>
-      <section class="search-results container">
+      <section class="search-results container position">
 
         <p class="search-results__count">
           <?php echo $search_results->found_posts; ?> risultat<?php echo $search_results->found_posts == 1 ? 'o' : 'i'; ?> per &ldquo;<?php echo esc_html($search_query); ?>&rdquo;

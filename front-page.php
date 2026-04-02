@@ -1,5 +1,6 @@
 <?php
-get_header(); ?>
+get_header();
+?>
 
 <body <?php body_class('theme-blue'); ?>>
 
@@ -9,7 +10,9 @@ get_header(); ?>
 
         <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-        <section class="hero container">
+        <?php get_template_part('template-parts/background'); ?>
+
+        <section class="hero container position">
             <?php
             $titolo_hero = get_field('titolo_hero_home');
             $testo_hero = get_field('testo_hero_home');
@@ -50,7 +53,7 @@ get_header(); ?>
 
         </section>
 
-        <section class="servizi-block container">
+        <section class="servizi-block container position">
             <?php
             $titolo_servizi = get_field('titolo_servizi_home');
 
@@ -100,7 +103,7 @@ get_header(); ?>
 
         </section>
 
-        <section class="progetti-block">
+        <section class="progetti-block position">
             <div class="progetti-block__wrap container">
                 <div class="progetti-block__wrap__intro">
                     <?php
@@ -142,31 +145,28 @@ get_header(); ?>
                     <ul class="swiper-wrapper">
 
                         <?php
-                        // Mostra l'ultimo post del CPT 'giornalino' come primo slide, se esiste.
-                        $giornalino_args = array(
-                            'post_type' => 'giornalino',
-                            'posts_per_page' => 1,
-                            'orderby' => 'date',
-                            'order' => 'DESC',
-                        );
-                        $giornalino_q = new WP_Query($giornalino_args);
-                        if ($giornalino_q->have_posts()) : while ($giornalino_q->have_posts()) : $giornalino_q->the_post(); ?>
-                                <li class="swiper-slide progetti-item">
-                                    <a href="<?php the_permalink(); ?>" class="progetti-item__link">
-                                        <div class="progetti-item__link__image">
-                                            <?php if (has_post_thumbnail()) : ?>
-                                                <?php the_post_thumbnail('large'); ?>
-                                            <?php endif; ?>
-                                        </div>
-                                        <time class="progetti-item__link__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
-                                        <p class="progetti-item__link__title"><?php the_title(); ?></p>
-                                    </a>
-                                </li>
-                        <?php endwhile;
-                            wp_reset_postdata();
-                        endif; ?>
+                        $link_giornalino = get_field('link_giornalino_home', $front_id);
+                        $image_giornalino = get_field('image_giornalino_home', $front_id);
 
-                        <?php /* Progetti Loop */
+                        if ($link_giornalino) {
+                            $link_giornalino_url = $link_giornalino['url'];
+                            $link_giornalino_title = $link_giornalino['title'];
+                            $link_giornalino_target = $link_giornalino['target'] ? $link_giornalino['target'] : '_self';
+                        }; ?>
+
+                        <li class="swiper-slide progetti-item">
+                            <a href="<?php echo esc_url($link_giornalino_url); ?>" target="<?php echo esc_attr($link_giornalino_target); ?>" class="progetti-item__link">
+                                <div class="progetti-item__link__image">
+                                    <?php if ($image_giornalino) : ?>
+                                        <img src="<?php echo esc_url($image_giornalino['url']); ?>" alt="<?php echo esc_attr($image_giornalino['alt']); ?>">
+                                    <?php endif; ?>
+                                </div>
+                                <p class="progetti-item__link__title"><?php echo esc_html($link_giornalino_title); ?></p>
+                            </a>
+                        </li>
+
+                        <?php
+                        /* Progetti Loop */
 
                         $progetti_loop = new WP_Query(array(
                             'post_type'     => 'progetti',
@@ -184,7 +184,6 @@ get_header(); ?>
                                                 <?php the_post_thumbnail('medium'); ?>
                                             <?php endif; ?>
                                         </div>
-                                        <time class="progetti-item__link__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
                                         <p class="progetti-item__link__title"><?php the_title(); ?></p>
                                     </a>
                                 </li>
@@ -202,7 +201,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="collaborazioni-block container ">
+        <section class="collaborazioni-block container  position">
             <div class="collaborazioni-block__wrap">
                 <div class="collaborazioni-block__wrap__intro">
                     <?php
@@ -262,7 +261,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="news-block">
+        <section class="news-block position">
             <div class="news-block__wrap container">
                 <div class="news-block__wrap__intro">
                     <?php
@@ -312,13 +311,14 @@ get_header(); ?>
 
                     <?php if ($post_loop->have_posts()) : while ($post_loop->have_posts()) : $post_loop->the_post(); ?>
                             <li class="news-block__wrap__loop__item">
-                                <a href="<?php the_permalink(); ?>" class="news-block__wrap__loop__item__link">
+                                <div href="<?php // the_permalink(); 
+                                            ?>" class="news-block__wrap__loop__item__link"> <!--temporaneamente div -->
                                     <div class="news-block__wrap__loop__item__link__image">
                                         <?php the_post_thumbnail('large', array('class' => '', 'alt' => get_the_title())); ?>
                                     </div>
                                     <time class="news-block__wrap__loop__date" datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
                                     <p><?php the_title(); ?></p>
-                                </a>
+                                </div>
                             </li>
 
                     <?php endwhile;
@@ -329,7 +329,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="valori container">
+        <section class="valori container position">
             <div class="valori__info">
 
                 <?php
@@ -370,7 +370,7 @@ get_header(); ?>
             endif; ?>
         </section>
 
-        <section class="social">
+        <section class="social position">
             <div class="social__wrap container">
                 <div class="social__wrap__intro">
                     <?php
@@ -414,7 +414,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="maps-block container">
+        <section class="maps-block container position">
             <div class="maps-block__info">
                 <?php
                 $map_title = get_field('titolo_mappa_home');
@@ -433,8 +433,8 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="network-block container ">
-            <div class="network-block__wrap">
+        <section class="network-block position">
+            <div class="network-block__wrap container ">
                 <div class="network-block__wrap__intro">
                     <?php
                     $title_network = get_field('titolo_network_home');
@@ -493,7 +493,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="parte-block">
+        <section class="parte-block position">
             <div class="parte-block__wrap container">
                 <div class="parte-block__wrap__intro">
                     <?php

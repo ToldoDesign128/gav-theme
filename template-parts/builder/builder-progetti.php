@@ -3,7 +3,7 @@
 // Check value exists.
 if (have_rows('builder_progetti')): ?>
 
-    <section class="builder-progetti">
+    <section class="builder-progetti position">
 
         <?php
         while (have_rows('builder_progetti')) : the_row();
@@ -294,8 +294,8 @@ if (have_rows('builder_progetti')): ?>
             // Case: Network.
             elseif (get_row_layout() == 'network_block'): ?>
 
-                <div class="network-block container ">
-                    <div class="network-block__wrap">
+                <div class="network-block">
+                    <div class="network-block__wrap container">
                         <div class="network-block__wrap__intro">
                             <?php
                             $title_network = get_sub_field('titolo_network');

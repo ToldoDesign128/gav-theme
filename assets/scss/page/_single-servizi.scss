@@ -343,141 +343,151 @@
 }
 
 .theme-viola {
-  .cards {
-    background-color: v.$viola-100;
+  .servizi-template {
+    .cards {
+      background-color: v.$viola-100;
 
-    &__wrap {
-      &__title {
-        color: v.$black;
-      }
+      &__wrap {
+        &__title {
+          color: v.$black;
+        }
 
-      &__list__item {
-        background-color: v.$viola-300;
-        color: v.$white;
+        &__list__item {
+          background-color: v.$viola-300;
+          color: v.$white;
 
-        .icon {
-          svg {
-            path {
-              fill: v.$white;
+          .icon {
+            svg {
+              path {
+                fill: v.$white;
+              }
             }
           }
         }
       }
     }
-  }
-  .appartamenti{
-    background-color: v.$viola-200;
+    .appartamenti {
+      background-color: v.$viola-200;
+    }
   }
 }
 
 .theme-fucsia {
-  .cards {
-    background-color: v.$fucsia-100;
+  .servizi-template {
+    .cards {
+      background-color: v.$fucsia-100;
 
-    &__wrap {
-      &__title {
-        color: v.$black;
-      }
+      &__wrap {
+        &__title {
+          color: v.$black;
+        }
 
-      &__list__item {
-        background-color: v.$fucsia-300;
-        color: v.$white;
+        &__list__item {
+          background-color: v.$fucsia-300;
+          color: v.$white;
 
-        .icon {
-          svg {
-            path {
-              fill: v.$white;
+          .icon {
+            svg {
+              path {
+                fill: v.$white;
+              }
             }
           }
         }
       }
     }
-  }
-  .appartamenti{
-    background-color: v.$fucsia-200;
+    .appartamenti {
+      background-color: v.$fucsia-200;
+    }
   }
 }
 
 .theme-verde {
-  .cards {
-    background-color: v.$verde-200;
+  .servizi-template {
+    .cards {
+      background-color: v.$verde-200;
 
-    &__wrap {
-      &__title {
-        color: v.$black;
-      }
+      &__wrap {
+        &__title {
+          color: v.$black;
+        }
 
-      &__list__item {
-        background-color: v.$verde-300;
-        color: v.$black;
+        &__list__item {
+          background-color: v.$verde-300;
+          color: v.$black;
 
-        .icon {
-          svg {
-            path {
-              fill: v.$black;
+          .icon {
+            svg {
+              path {
+                fill: v.$black;
+              }
             }
           }
         }
       }
     }
-  }
-  .appartamenti{
-    background-color: v.$verde-200;
+    .appartamenti {
+      background-color: v.$verde-200;
+    }
   }
 }
 
 .theme-giallo {
-  .cards {
-    background-color: v.$giallo-100;
+  .servizi-template {
+    .cards {
+      background-color: v.$giallo-100;
 
-    &__wrap {
-      &__title {
-        color: v.$black;
-      }
+      &__wrap {
+        &__title {
+          color: v.$black;
+        }
 
-      &__list__item {
-        background-color: v.$giallo-300;
-        color: v.$black;
+        &__list__item {
+          background-color: v.$giallo-300;
+          color: v.$black;
 
-        .icon {
-          svg {
-            path {
-              fill: v.$black;
+          .icon {
+            svg {
+              path {
+                fill: v.$black;
+              }
             }
           }
         }
       }
     }
-  }
-  .appartamenti{
-    background-color: v.$giallo-200;
+    .appartamenti {
+      background-color: v.$giallo-200;
+    }
   }
 }
 
 .theme-blue {
-  .cards {
-    background-color: v.$blue-100;
+  .servizi-template {
+    .cards {
+      background-color: v.$blue-100;
 
-    &__wrap {
-      &__title {
-        color: v.$black;
-      }
+      &__wrap {
+        &__title {
+          color: v.$black;
+        }
 
-      &__list__item {
-        background-color: v.$blue-300;
-        color: v.$white;
+        &__list__item {
+          background-color: v.$blue-300;
+          color: v.$white;
 
-        .icon {
-          svg {
-            path {
-              fill: v.$white;
+          .icon {
+            svg {
+              path {
+                fill: v.$white;
+              }
             }
           }
         }
       }
     }
-  }
-  .appartamenti{
-    background-color: v.$blue-200;
+    .appartamenti {
+      background-color: v.$blue-200;
+    }
   }
 }

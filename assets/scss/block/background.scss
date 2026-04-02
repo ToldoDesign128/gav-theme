@@ -1,0 +1,85 @@
+// Background
+
+@use "/assets/scss/variable/variable" as v;
+
+.background {
+  position: fixed;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  overflow: hidden;
+
+  @include v.respond-to(lg) {
+    top: 150px;
+  }
+  @include v.respond-to(xl) {
+    top: 100px;
+  }
+
+  &__wave {
+    width: 200%;
+    height: auto;
+    animation: wave-scroll 20s linear infinite;
+  }
+}
+
+@keyframes wave-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.theme-viola {
+  .background {
+    svg {
+      path {
+        stroke: v.$viola-100;
+      }
+    }
+  }
+}
+
+.theme-fucsia {
+  .background {
+    svg {
+      path {
+        stroke: v.$fucsia-100;
+      }
+    }
+  }
+}
+
+.theme-verde {
+  .background {
+    svg {
+      path {
+        stroke: v.$verde-100;
+      }
+    }
+  }
+}
+
+.theme-giallo {
+  .background {
+    svg {
+      path {
+        stroke: v.$giallo-100;
+      }
+    }
+  }
+}
+
+.theme-blue {
+  .background {
+    svg {
+      path {
+        stroke: v.$blue-100;
+      }
+    }
+  }
+}

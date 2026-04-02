@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="documenti__content container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="documenti__content container position">
       <?php
       $title = get_field('titolo_documenti');
       if ($title) : ?>

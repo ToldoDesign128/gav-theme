@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="hero container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="hero container position">
       <?php
       $titolo_hero = get_field('titolo_hero_sostienici');
       $testo_hero = get_field('testo_hero_sostienici');
@@ -47,7 +49,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="mille">
+    <section class="mille position">
       <div class="mille__wrap container">
         <?php $title_mille = get_field('titolo_5x1000_sostienici'); ?>
         <?php if ($title_mille) : ?>
@@ -93,7 +95,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="donazioni">
+    <section class="donazioni position">
       <div class="donazioni__wrap container">
         <?php
         $title_donazioni = get_field('titolo_donazioni_sostienici');
@@ -120,7 +122,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="sponsorizzazioni container">
+    <section class="sponsorizzazioni container position">
       <?php
       $title_sponsor = get_field('titolo_sponsorizzazioni_sostienici');
       $text_sponsor = get_field('testo_sponsorizzazioni_sostienici'); ?>
@@ -138,7 +140,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="scarica">
+    <section class="scarica position">
       <div class="scarica__wrap container">
 
         <?php if (have_rows('repeater_scaricabili')) : ?>

@@ -13,6 +13,8 @@ $theme_class = $colore_progetto ? 'theme-' . sanitize_title($colore_progetto) : 
 
         <?php get_template_part('template-parts/breadcrumbs'); ?>
 
+        <?php get_template_part('template-parts/background'); ?>
+
         <?php get_template_part('template-parts/builder/builder-progetti'); ?>
 
     </main>

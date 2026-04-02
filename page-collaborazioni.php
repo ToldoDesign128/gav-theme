@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="collaborazioni-block container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="collaborazioni-block container position">
       <?php
       $titolo_collaborazioni = get_field('titolo_collaborazioni');
 

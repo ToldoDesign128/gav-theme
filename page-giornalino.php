@@ -21,7 +21,9 @@ get_header(); ?>
       </ul>
     </nav>
 
-    <section class="hero container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="hero container position">
       <?php
       $title_giornalino = get_field('titolo_giornalino');
       $text_giornalino = get_field('testo_giornalino'); ?>
@@ -78,7 +80,7 @@ get_header(); ?>
 
     </section>
 
-    <section class="giornalino__txt-img container">
+    <section class="giornalino__txt-img container position">
       <div class="giornalino__txt-img__wrap">
 
         <?php
@@ -125,7 +127,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="giornalino__obiettivi">
+    <section class="giornalino__obiettivi position">
       <div class="giornalino__obiettivi__wrap container">
         <?php
         $titolo_obiettivi = get_field('titolo_obiettivi_giornalino');
@@ -185,7 +187,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="risultati">
+    <section class="risultati position">
       <div class="risultati__wrap container">
         <?php
         $titolo_risultato = get_field('titolo_risultati_giornalino');
@@ -210,7 +212,7 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="slider container">
+    <section class="slider container position">
       <div class="slider__wrap">
         <?php
         if (have_rows('gallery_giornalino')): ?>
@@ -268,8 +270,8 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="network-block container ">
-      <div class="network-block__wrap">
+    <section class="network-block position">
+      <div class="network-block__wrap container">
         <div class="network-block__wrap__intro">
           <?php
           $title_network = get_field('titolo_network_giornalino');

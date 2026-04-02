@@ -10,7 +10,9 @@ get_header(); ?>
 
   <main class="error">
 
-    <section class="error__content container">
+  <?php get_template_part('template-parts/background'); ?>
+
+    <section class="error__content container position">
       <div class="error__content__info">
         <h1>Ops!<br>Pagina non trovata.</h1>
         <p>Sembra che la pagina che stai cercando non esista o sia stata spostata.</p>

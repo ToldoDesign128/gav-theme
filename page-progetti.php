@@ -14,7 +14,9 @@ get_header(); ?>
 
     <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-    <section class="progetti-block container">
+    <?php get_template_part('template-parts/background'); ?>
+
+    <section class="progetti-block container position">
       <?php
       $titolo_progetti = get_field('titolo_progetti');
 
@@ -86,8 +88,8 @@ get_header(); ?>
       </div>
     </section>
 
-    <section class="network-block container ">
-      <div class="network-block__wrap">
+    <section class="network-block position">
+      <div class="network-block__wrap container">
         <div class="network-block__wrap__intro">
           <?php
           $title_network = get_field('titolo_network_progetti');

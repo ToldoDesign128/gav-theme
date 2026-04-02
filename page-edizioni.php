@@ -22,7 +22,9 @@ get_header(); ?>
             </ul>
         </nav>
 
-        <section class="edizioni__hero container">
+        <?php get_template_part('template-parts/background'); ?>
+
+        <section class="edizioni__hero container position">
             <div class="edizioni__hero__wrap">
                 <?php
                 $titolo_hero = get_field('titolo_giornalino');
@@ -60,7 +62,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="edizioni__precedenti">
+        <section class="edizioni__precedenti position">
             <div class="edizioni__precedenti__wrap container">
                 <?php
                 $titolo_precedenti = get_field('titolo_edizioni_precedenti');
@@ -97,7 +99,7 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="slider container">
+        <section class="slider container position">
             <div class="slider__wrap">
                 <?php
                 if (have_rows('gallery_edizioni')): ?>
@@ -155,8 +157,8 @@ get_header(); ?>
             </div>
         </section>
 
-        <section class="network-block container ">
-            <div class="network-block__wrap">
+        <section class="network-block position">
+            <div class="network-block__wrap container">
                 <div class="network-block__wrap__intro">
                     <?php
                     $title_network = get_field('titolo_network_edizioni');
