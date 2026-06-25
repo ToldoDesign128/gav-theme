@@ -42,7 +42,7 @@ get_header(); ?>
                         $image = get_sub_field('image');
                         $data = get_sub_field('data'); ?>
 
-                        <a href="<?php echo $file['url']; ?>" class="edizioni__hero__wrap__post">
+                        <a href="<?php echo $file['url']; ?>" class="edizioni__hero__wrap__post" target="_blank">
                             <?php if ($image = get_sub_field('image')) : ?>
                                 <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                             <?php endif; ?>
@@ -78,7 +78,7 @@ get_header(); ?>
                             $image_prec = get_sub_field('image');
                             $data_prec = get_sub_field('data'); ?>
 
-                            <a href="<?php echo $file_prec['url']; ?>" class="edizioni__precedenti__wrap__list__post">
+                            <a href="<?php echo $file_prec['url']; ?>" class="edizioni__precedenti__wrap__list__post" target="_blank">
                                 <?php if ($image_prec) : ?>
                                     <img src="<?php echo esc_url($image_prec['url']); ?>" alt="<?php echo esc_attr($image_prec['alt']); ?>">
                                 <?php endif; ?>

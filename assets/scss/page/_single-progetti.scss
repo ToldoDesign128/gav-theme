@@ -48,6 +48,19 @@
         font-size: clamp(24px, 20px + 1vw, 36px);
         font-weight: 700;
         text-align: center;
+
+        @include v.respond-to(md) {
+          max-width: 80%;
+        }
+        @include v.respond-to(lg) {
+          max-width: 70%;
+        }
+        @include v.respond-to(xl) {
+          max-width: 60%;
+        }
+        @include v.respond-to(xxl) {
+          max-width: 50%;
+        }
       }
       &__text {
         color: v.$black;
@@ -464,6 +477,12 @@
                 }
               }
             }
+
+            img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+          }
           }
         }
 

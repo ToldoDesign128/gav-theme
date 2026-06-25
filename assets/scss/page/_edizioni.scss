@@ -122,12 +122,12 @@
           width: 350px;
           display: flex;
           flex-direction: column;
-          aspect-ratio: 1;
           border-radius: 16px;
           background-color: v.$giallo-300;
           overflow: hidden;
-
+          
           img {
+            aspect-ratio: 1;
             width: auto;
             height: 80%;
             object-fit: cover;
@@ -232,6 +232,12 @@
                 }
               }
             }
+
+            img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+          }
           }
         }
 

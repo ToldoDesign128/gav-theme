@@ -10,6 +10,7 @@
   @include v.respond-to(xl) {
     padding: 110px 0 0 0;
   }
+
   @include v.respond-to(xxl) {
     padding: 120px 0 0 0;
   }
@@ -17,8 +18,18 @@
   .hero {
     &__wrap {
       &__content {
-        &__title {
+        overflow-x: hidden;
+
+        &__title,
+        &__subtitle {
           color: v.$blue-300;
+        }
+
+        &__slide {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
         }
       }
     }
@@ -95,6 +106,7 @@
           }
         }
       }
+
       &__slider {
         padding: 20px 0;
         position: relative;
@@ -120,11 +132,13 @@
 
                 img {
                   width: 100%;
+                  height: auto;
                   min-height: 100%;
                   object-fit: cover;
                   transition: transform 0.3s ease;
                 }
               }
+
               &__title {
                 padding: 10px;
                 text-align: center;
@@ -185,6 +199,7 @@
           font-weight: 700;
         }
       }
+
       &__repeater {
         padding: 20px 0 40px 0;
         position: relative;
@@ -210,6 +225,12 @@
                 }
               }
             }
+
+            img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+          }
           }
         }
 
@@ -299,6 +320,7 @@
           }
         }
       }
+
       &__loop {
         padding: 20px 0;
         list-style-type: none;
@@ -340,6 +362,7 @@
               font-weight: 400;
               transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
             }
+
             p {
               line-height: 1;
               color: v.$black;
@@ -359,6 +382,7 @@
                 time {
                   opacity: 0.6;
                 }
+
                 p {
                   opacity: 0.6;
                 }
@@ -395,6 +419,7 @@
         font-weight: 700;
       }
     }
+
     &__slider {
       width: 100%;
       position: relative;
@@ -405,23 +430,65 @@
       }
 
       &__item {
+        position: relative;
         height: auto;
+        min-height: 200px;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: v.$blue-200;
-        padding: 30px 20px;
+        align-items: end;
+        overflow: hidden;
+        background-color: v.$blue-300;
+        padding: 20px;
         border-radius: 12px;
+        transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 
         @include v.respond-to(xl) {
-          padding: 60px 30px;
+          min-height: 260px;
+          background-color: v.$blue-200;
+        }
+
+        &__title {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          transform: none;
+          color: v.$black;
+          font-size: clamp(16px, 12px + 1vw, 19px);
+          font-weight: 600;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          @include v.respond-to(xl) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
         }
 
         &__text {
-          text-align: center;
+          opacity: 1;
           color: v.$black;
-          font-size: clamp(16px, 12px + 1vw, 18px);
+          font-size: clamp(14px, 10px + 1vw, 18px);
           font-weight: 600;
+          transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          @include v.respond-to(xl) {
+            opacity: 0;
+          }
+        }
+
+        @include v.respond-to(xl) {
+          &:hover {
+            background-color: v.$blue-300;
+
+            .valori__slider__item__title {
+              top: 20px;
+              left: 20px;
+              transform: none;
+              font-size: clamp(18px, 14px + 1vw, 24px);
+            }
+            .valori__slider__item__text {
+              opacity: 1;
+            }
+          }
         }
       }
 
@@ -511,6 +578,7 @@
             filter: opacity(0.6);
             transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
           }
+
           &:first-child {
             img {
               filter: opacity(0.6) hue-rotate(315deg);
@@ -520,6 +588,7 @@
               }
             }
           }
+
           &:last-child {
             img {
               filter: opacity(0.6) hue-rotate(180deg);
@@ -529,6 +598,7 @@
               }
             }
           }
+
           svg {
             position: absolute;
             z-index: 10;
@@ -557,6 +627,7 @@
                   filter: opacity(0.6) hue-rotate(315deg);
                 }
               }
+
               &:last-child {
                 img {
                   filter: opacity(0.6) hue-rotate(180deg);
@@ -643,6 +714,7 @@
           font-weight: 700;
         }
       }
+
       &__repeater {
         padding: 20px 0 40px 0;
         position: relative;
@@ -690,10 +762,10 @@
   .parte-block {
     background-color: v.$blue-100;
 
-    .swiper-pagination{
-        .swiper-pagination-bullet-active {
-          background-color: v.$blue-300;
-        }
+    .swiper-pagination {
+      .swiper-pagination-bullet-active {
+        background-color: v.$blue-300;
+      }
     }
   }
 }

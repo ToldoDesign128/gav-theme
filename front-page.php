@@ -14,32 +14,43 @@ get_header();
 
         <section class="hero container position">
             <?php
-            $titolo_hero = get_field('titolo_hero_home');
-            $testo_hero = get_field('testo_hero_home');
-            $cta_hero = get_field('pulsante_hero_home');
             $img_hero = get_field('image_hero_home'); ?>
 
             <div class="hero__wrap">
-                <div class="hero__wrap__content">
-                    <?php if ($titolo_hero) : ?>
-                        <h1 class="hero__wrap__content__title">
-                            <?php echo esc_html($titolo_hero); ?>
-                        </h1>
-                    <?php endif; ?>
-
-                    <?php if ($testo_hero) : ?>
-                        <div class="hero__wrap__content__text">
-                            <?php echo $testo_hero; ?>
+                <?php if (have_rows('repeater_hero_home')) : ?>
+                    <div class="hero__wrap__content swiperHero">
+                        <div class="swiper-wrapper">
+                            <?php while (have_rows('repeater_hero_home')) : the_row();
+                                $titolo_hero = get_sub_field('titolo');
+                                $sub_titolo_hero = get_sub_field('sottotitolo');
+                                $testo_hero = get_sub_field('testo');
+                                $cta_hero = get_sub_field('pulsante'); ?>
+                                <div class="hero__wrap__content__slide swiper-slide">
+                                    <?php if ($titolo_hero) : ?>
+                                        <h1 class="hero__wrap__content__title">
+                                            <?php echo esc_html($titolo_hero); ?>
+                                        </h1>
+                                    <?php endif; ?>
+                                    <?php if ($sub_titolo_hero) : ?>
+                                        <h2 class="hero__wrap__content__subtitle">
+                                            <?php echo esc_html($sub_titolo_hero); ?>
+                                        </h2>
+                                    <?php endif; ?>
+                                    <?php if ($testo_hero) : ?>
+                                        <div class="hero__wrap__content__text">
+                                            <?php echo $testo_hero; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if ($cta_hero) : ?>
+                                        <a href="<?php echo esc_url($cta_hero['url']); ?>" class="hero__wrap__content__cta primary-btn">
+                                            <?php echo esc_html($cta_hero['title']); ?>
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endwhile; ?>
                         </div>
-                    <?php endif; ?>
-
-                    <?php if ($cta_hero) : ?>
-                        <a href="<?php echo esc_url($cta_hero['url']); ?>" class="hero__wrap__content__cta primary-btn">
-                            <?php echo esc_html($cta_hero['title']); ?>
-                        </a>
-                    <?php endif; ?>
-
-                </div>
+                    </div>
+                <?php endif; ?>
 
                 <?php if ($img_hero) : ?>
                     <div class="hero__wrap__image">
@@ -181,15 +192,15 @@ get_header();
                                     <a href="<?php the_permalink(); ?>" class="progetti-item__link">
                                         <div class="progetti-item__link__image">
                                             <?php if (has_post_thumbnail()) : ?>
-                                                <?php the_post_thumbnail('medium'); ?>
+                                                <?php the_post_thumbnail('full'); ?>
                                             <?php endif; ?>
                                         </div>
                                         <p class="progetti-item__link__title"><?php the_title(); ?></p>
                                     </a>
                                 </li>
 
-                                <?php wp_reset_postdata(); ?>
                         <?php endwhile;
+                            wp_reset_postdata();
                         endif; ?>
                     </ul>
 
@@ -304,7 +315,7 @@ get_header();
 
                     $post_loop = new WP_Query(array(
                         'post_type'     => 'post',
-                        'posts_per_page' => 4,
+                        'posts_per_page' => 3,
                         'orderby'        => 'menu_order',
                         'order'          => 'ASC',
                     )); ?>
@@ -348,13 +359,19 @@ get_header();
                     <ul class="swiper-wrapper">
                         <?php
                         while (have_rows('repeater_card_home')) : the_row();
-                            $sub_value = get_sub_field('testo'); ?>
+                            $title_value = get_sub_field('titolo');
+                            $text_value = get_sub_field('testo'); ?>
 
                             <div class="valori__slider__item swiper-slide">
-                                <?php if ($sub_value) : ?>
-                                    <p class="valori__slider__item__text">
-                                        <?php echo esc_html($sub_value); ?>
-                                    </p>
+                                <?php if ($title_value) : ?>
+                                    <h6 class="valori__slider__item__title">
+                                        <?php echo esc_html($title_value); ?>
+                                    </h6>
+                                <?php endif; ?>
+                                <?php if ($text_value) : ?>
+                                    <div class="valori__slider__item__text">
+                                        <?php echo $text_value; ?>
+                                    </div>
                                 <?php endif; ?>
                             </div>
 

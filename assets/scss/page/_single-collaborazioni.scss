@@ -292,6 +292,7 @@
       }
     }
   }
+
   .card-bg {
     width: 100%;
     padding: 70px 20px;
@@ -373,7 +374,6 @@
     }
   }
 
-  // Step Block
   .step-block {
     background-color: v.$blue-100;
     padding: 40px 20px;
@@ -579,27 +579,282 @@
         font-weight: 700;
         text-align: center;
       }
-      &__list{
+      &__list {
+        width: 100%;
+        position: relative;
+
+        &__item {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+
+          &__text {
+            color: v.$black;
+            font-size: clamp(14px, 10px + 1vw, 18px);
+            line-height: 1.6;
+          }
+          &__nome {
+            color: v.$gray;
+            font-size: clamp(12px, 8px + 1vw, 16px);
+            font-weight: 300;
+          }
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: v.$black;
+          padding: 12px;
+          background-color: v.$white;
+          border-radius: 10px;
+        }
+
+        .swiper-pagination {
+          bottom: 0;
+
+          .swiper-pagination-bullet {
+            background: v.$black;
+            opacity: 0.3;
+
+            &-active {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .form-block {
+    width: 100%;
+    padding: 70px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include v.respond-to(xl) {
+      padding: 140px 0px;
+    }
+
+    &__wrap {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 40px 24px;
+      background-color: v.$giallo-100;
+      border: 1px solid v.$giallo-300;
+      border-radius: 16px;
+
+      @include v.respond-to(md) {
+        padding: 50px 40px;
+      }
+
+      @include v.respond-to(lg) {
+        max-width: 90%;
+        padding: 60px 60px;
+      }
+
+      @include v.respond-to(xl) {
+        max-width: 80%;
+        gap: 40px;
+        padding: 60px 80px;
+      }
+
+      &__title {
+        color: v.$black;
+        font-size: clamp(24px, 20px + 1vw, 36px);
+        font-weight: 700;
+        text-align: center;
+      }
+
+      &__form {
         width: 100%;
 
-        &__item{
-            padding: 20px;
+        .wpcf7-form {
+          > p,
+          > div {
+            width: 100%;
+          }
+
+          .form-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+
+            @include v.respond-to(md) {
+              grid-template-columns: 1fr 1fr;
+            }
+          }
+          .form-extra {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 16px;
+            margin-top: 20px;
 
-            &__text{
-                color: v.$black;
-                font-size: clamp(14px, 10px + 1vw, 18px);
-                line-height: 1.6;
+            .info {
+              padding: 20px;
+              color: v.$gray;
+              background-color: v.$white;
+              border-radius: 16px;
+              font-size: clamp(10px, 6px + 1vw, 14px);
             }
-            &__nome{
-                color: v.$gray;
-                font-size: clamp(12px, 8px + 1vw, 16px);
-                font-weight: 300;
-            }
+          }
 
+          .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            width: 100%;
+
+            @include v.respond-to(md) {
+              grid-template-columns: 1fr 1fr;
+            }
+          }
+
+          // Input & textarea base styling
+          input[type="text"],
+          input[type="email"],
+          input[type="tel"],
+          input[type="url"],
+          input[type="number"],
+          textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid;
+            border-radius: 10px;
+            background-color: v.$white;
+            font-family: v.$primary-font;
+            font-size: clamp(14px, 10px + 1vw, 16px);
+            color: v.$black;
+            outline: none;
+            transition: border-color 0.3s ease;
+
+            &::placeholder {
+              color: v.$gray;
+              font-weight: 400;
+            }
+          }
+
+          textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-size: clamp(11px, 8px + 0.5vw, 13px);
+            line-height: 1.5;
+            color: v.$dark-gray;
+          }
+
+          // Submit button
+          input[type="submit"] {
+            display: inline-block;
+            padding: 14px 36px;
+            color: v.$white;
+            font-family: v.$primary-font;
+            font-size: clamp(14px, 10px + 1vw, 16px);
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+
+            @include v.respond-to(xl) {
+              &:hover {
+                opacity: 0.6;
+              }
+            }
+          }
+
+          // CF7 validation messages
+          .wpcf7-not-valid-tip {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 4px;
+          }
+
+          .wpcf7-response-output {
+            border-radius: 10px;
+            padding: 12px 18px;
+            font-size: 14px;
+            text-align: center;
+          }
         }
+      }
+    }
+  }
+
+  .cta-block {
+    width: 100%;
+    padding: 70px 20px;
+
+    @include v.respond-to(xl) {
+      padding: 140px 0px;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 40px;
+      }
+      &__title {
+        color: v.$black;
+        font-size: clamp(24px, 20px + 1vw, 36px);
+        font-weight: 700;
+        text-align: center;
+      }
+      &__text {
+        color: v.$black;
+        font-size: clamp(14px, 10px + 1vw, 18px);
+        line-height: 1.6;
+        text-align: center;
+        max-width: 90%;
+
+        @include v.respond-to(lg) {
+          max-width: 70%;
+        }
+        @include v.respond-to(xl) {
+          max-width: 60%;
+        }
+      }
+    }
+  }
+
+  .slider {
+    width: 100%;
+    padding: 60px 0;
+
+    @include v.respond-to(md) {
+      padding: 90px 0;
+    }
+    @include v.respond-to(lg) {
+      padding: 100px 0;
+    }
+    @include v.respond-to(xl) {
+      padding: 120px 0;
+    }
+
+    &__wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include v.respond-to(xl) {
+        gap: 50px;
+      }
+
+      &__title {
+        color: v.$black;
+        font-size: clamp(24px, 20px + 1vw, 36px);
+        font-weight: 700;
+        text-align: center;
       }
     }
   }
@@ -638,8 +893,58 @@
         }
       }
     }
-    .testimonianze-block{
+    .testimonianze-block {
+      background-color: v.$viola-100;
+    }
+    .form-block {
+      &__wrap {
         background-color: v.$viola-100;
+        border: 1px solid v.$viola-300;
+
+        &__form {
+          width: 100%;
+
+          .wpcf7-form {
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="number"],
+            textarea {
+              border: 1px solid v.$viola-300;
+            }
+
+            // Submit button
+            input[type="submit"] {
+              background-color: v.$viola-300;
+            }
+          }
+        }
+      }
+    }
+    .cta-block {
+      background-color: v.$viola-300;
+
+      &__wrap {
+        &__title {
+          color: v.$white;
+        }
+        &__text {
+          color: v.$white;
+        }
+
+        &__btn {
+          border-color: v.$white;
+          color: v.$white;
+
+          @include v.respond-to(xl) {
+            &:hover {
+              background-color: v.$white;
+              color: v.$viola-300;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -677,8 +982,57 @@
         }
       }
     }
-    .testimonianze-block{
+    .testimonianze-block {
+      background-color: v.$fucsia-100;
+    }
+    .form-block {
+      &__wrap {
         background-color: v.$fucsia-100;
+        border: 1px solid v.$fucsia-300;
+
+        &__form {
+          width: 100%;
+          .wpcf7-form {
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="number"],
+            textarea {
+              border: 1px solid v.$fucsia-300;
+            }
+
+            // Submit button
+            input[type="submit"] {
+              background-color: v.$fucsia-300;
+            }
+          }
+        }
+      }
+    }
+    .cta-block {
+      background-color: v.$fucsia-300;
+
+      &__wrap {
+        &__title {
+          color: v.$white;
+        }
+        &__text {
+          color: v.$white;
+        }
+
+        &__btn {
+          border-color: v.$white;
+          color: v.$white;
+
+          @include v.respond-to(xl) {
+            &:hover {
+              background-color: v.$white;
+              color: v.$fucsia-300;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -716,8 +1070,57 @@
         }
       }
     }
-    .testimonianze-block{
+    .testimonianze-block {
+      background-color: v.$verde-100;
+    }
+    .form-block {
+      &__wrap {
         background-color: v.$verde-100;
+        border: 1px solid v.$verde-300;
+
+        &__form {
+          width: 100%;
+          .wpcf7-form {
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="number"],
+            textarea {
+              border: 1px solid v.$verde-300;
+            }
+
+            // Submit button
+            input[type="submit"] {
+              background-color: v.$verde-300;
+            }
+          }
+        }
+      }
+    }
+    .cta-block {
+      background-color: v.$verde-300;
+
+      &__wrap {
+        &__title {
+          color: v.$white;
+        }
+        &__text {
+          color: v.$white;
+        }
+
+        &__btn {
+          border-color: v.$white;
+          color: v.$white;
+
+          @include v.respond-to(xl) {
+            &:hover {
+              background-color: v.$white;
+              color: v.$verde-300;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -755,8 +1158,57 @@
         }
       }
     }
-    .testimonianze-block{
+    .testimonianze-block {
+      background-color: v.$giallo-100;
+    }
+    .form-block {
+      &__wrap {
         background-color: v.$giallo-100;
+        border: 1px solid v.$giallo-300;
+
+        &__form {
+          width: 100%;
+          .wpcf7-form {
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="number"],
+            textarea {
+              border: 1px solid v.$giallo-300;
+            }
+
+            // Submit button
+            input[type="submit"] {
+              background-color: v.$giallo-300;
+            }
+          }
+        }
+      }
+    }
+    .cta-block {
+      background-color: v.$giallo-300;
+
+      &__wrap {
+        &__title {
+          color: v.$white;
+        }
+        &__text {
+          color: v.$white;
+        }
+
+        &__btn {
+          border-color: v.$white;
+          color: v.$white;
+
+          @include v.respond-to(xl) {
+            &:hover {
+              background-color: v.$white;
+              color: v.$giallo-300;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -794,8 +1246,57 @@
         }
       }
     }
-    .testimonianze-block{
+    .testimonianze-block {
+      background-color: v.$blue-100;
+    }
+    .form-block {
+      &__wrap {
         background-color: v.$blue-100;
+        border: 1px solid v.$blue-300;
+
+        &__form {
+          width: 100%;
+          .wpcf7-form {
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="url"],
+            input[type="number"],
+            textarea {
+              border: 1px solid v.$blue-300;
+            }
+
+            // Submit button
+            input[type="submit"] {
+              background-color: v.$blue-300;
+            }
+          }
+        }
+      }
+    }
+    .cta-block {
+      background-color: v.$blue-300;
+
+      &__wrap {
+        &__title {
+          color: v.$white;
+        }
+        &__text {
+          color: v.$white;
+        }
+
+        &__btn {
+          border-color: v.$white;
+          color: v.$white;
+
+          @include v.respond-to(xl) {
+            &:hover {
+              background-color: v.$white;
+              color: v.$blue-300;
+            }
+          }
+        }
+      }
     }
   }
 }

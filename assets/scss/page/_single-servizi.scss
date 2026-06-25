@@ -54,6 +54,13 @@
         color: v.$black;
         font-size: clamp(14px, 10px + 1vw, 16px);
 
+        @include v.respond-to(md) {
+          width: 50%;
+        }
+        @include v.respond-to(lg) {
+          width: 30%;
+        }
+
         .icon {
           display: flex;
           justify-content: center;
@@ -78,8 +85,10 @@
         display: none;
 
         @include v.respond-to(md) {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
           gap: 30px;
         }
         @include v.respond-to(lg) {
@@ -193,6 +202,32 @@
           &__text {
             color: v.$black;
             font-size: clamp(14px, 10px + 1vw, 16px);
+
+            p {
+              padding-top: 20px;
+
+              &:first-child {
+                padding-top: 0;
+              }
+            }
+            strong {
+              font-weight: 700;
+            }
+            em {
+              font-style: italic;
+            }
+            ul {
+              padding-left: 20px;
+              list-style: disc;
+
+              li {
+                padding-top: 10px;
+              }
+            }
+            ol {
+              padding-left: 20px;
+              list-style: decimal;
+            }
           }
         }
       }
@@ -265,6 +300,7 @@
             img {
               width: 100%;
               height: auto;
+              min-height: 100%;
               object-fit: cover;
             }
           }
@@ -370,6 +406,9 @@
       background-color: v.$viola-200;
     }
   }
+  .parte-block {
+    background-color: v.$viola-100;
+  }
 }
 
 .theme-fucsia {
@@ -399,6 +438,9 @@
     .appartamenti {
       background-color: v.$fucsia-200;
     }
+  }
+  .parte-block {
+    background-color: v.$fucsia-100;
   }
 }
 
@@ -430,6 +472,9 @@
       background-color: v.$verde-200;
     }
   }
+  .parte-block {
+    background-color: v.$verde-100;
+  }
 }
 
 .theme-giallo {
@@ -460,6 +505,9 @@
       background-color: v.$giallo-200;
     }
   }
+  .parte-block {
+    background-color: v.$giallo-100;
+  }
 }
 
 .theme-blue {
@@ -489,5 +537,8 @@
     .appartamenti {
       background-color: v.$blue-200;
     }
+  }
+  .parte-block {
+    background-color: v.$blue-100;
   }
 }

@@ -75,7 +75,7 @@ get_header(); ?>
               <a href="<?php the_permalink(); ?>" class="progetti-block__loop__item__link">
                 <div class="progetti-block__loop__item__link__image">
                   <?php if (has_post_thumbnail()) : ?>
-                    <?php the_post_thumbnail('large'); ?>
+                    <?php the_post_thumbnail('full'); ?>
                   <?php endif; ?>
                 </div>
                 <p class="progetti-block__loop__item__link__title"><?php the_title(); ?></p>

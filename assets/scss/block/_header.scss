@@ -22,7 +22,8 @@
 
     &__logo {
       display: block;
-      max-width: 100px;
+      width: 100%;
+      max-width: 120px;
       transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 
       img {
@@ -32,7 +33,7 @@
       }
 
       @include v.respond-to(xl) {
-        max-width: 130px;
+        max-width: 160px;
 
         &:hover {
           opacity: 0.8;
@@ -55,10 +56,10 @@
         gap: 40px;
 
         @include v.respond-to(xl) {
-          gap: 60px;
+          gap: 45px;
         }
         @include v.respond-to(xxl) {
-          gap: 70px;
+          gap: 50px;
         }
 
         li {

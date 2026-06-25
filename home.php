@@ -161,7 +161,7 @@ get_header(); ?>
                                 </div>
                                 <?php if (has_post_thumbnail()) : ?>
                                     <div class="news__wrap__all__item__image">
-                                        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium_large'); ?>" alt="<?php the_title_attribute(); ?>">
+                                        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>" alt="<?php the_title_attribute(); ?>">
                                     </div>
                                 <?php endif; ?>
                             </article>

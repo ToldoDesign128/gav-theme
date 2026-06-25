@@ -348,6 +348,9 @@ if (have_rows('builder_collaborazioni_collab')): ?>
                                         </div>
                                     <?php endwhile; ?>
                                 </div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-pagination"></div>
                             </div>
                         <?php endif; ?>
 
@@ -360,8 +363,19 @@ if (have_rows('builder_collaborazioni_collab')): ?>
                 $title_form = get_sub_field('titolo_form');
                 $shortcode_form = get_sub_field('shortcode_form'); ?>
 
-                <div class="form-block">
-                    <div class="form-block__wrap container">
+                <div class="form-block container">
+                    <div class="form-block__wrap">
+                        <?php if ($title_form) : ?>
+                            <h2 class="form-block__wrap__title">
+                                <?php echo esc_html($title_form); ?>
+                            </h2>
+                        <?php endif; ?>
+
+                        <div class="form-block__wrap__form">
+                            <?php if ($shortcode_form) : ?>
+                                <?php echo do_shortcode($shortcode_form); ?>
+                            <?php endif; ?>
+                        </div>
 
                     </div>
                 </div>
@@ -381,21 +395,21 @@ if (have_rows('builder_collaborazioni_collab')): ?>
 
                 <div class="cta-block">
                     <div class="cta-block__wrap container">
-
-                    </div>
-                </div>
-
-            <?php
-            // Case: Image.
-            elseif (get_row_layout() == 'image_block'):
-                $title_img = get_sub_field('titolo_img');
-                $selettore_img = get_sub_field('selettore_img');
-                $image_img = get_sub_field('image_img');
-                $video_img = get_sub_field('video_img'); ?>
-
-                <div class="image-block">
-                    <div class="image-block__wrap container">
-
+                        <?php if ($title_cta) : ?>
+                            <h2 class="cta-block__wrap__title">
+                                <?php echo esc_html($title_cta); ?>
+                            </h2>
+                        <?php endif; ?>
+                        <?php if ($testo_cta) : ?>
+                            <div class="cta-block__wrap__text">
+                                <?php echo $testo_cta; ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($link_cta) : ?>
+                            <a class="cta-block__wrap__btn primary-btn" href="<?php echo esc_url($link_cta_url); ?>" target="<?php echo esc_attr($link_cta_target); ?>">
+                                <?php echo esc_html($link_cta_title); ?>
+                            </a>
+                        <?php endif; ?>
                     </div>
                 </div>
 

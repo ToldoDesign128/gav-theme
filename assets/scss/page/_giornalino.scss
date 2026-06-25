@@ -320,7 +320,7 @@
         text-align: center;
       }
 
-      &__list{
+      &__list {
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -436,6 +436,12 @@
                 }
               }
             }
+
+            img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+          }
           }
         }
 

@@ -24,26 +24,41 @@ get_header(); ?>
       $img_hero = get_field('image_hero_about'); ?>
 
       <div class="hero__wrap">
-        <div class="hero__wrap__content">
-          <?php if ($titolo_hero) : ?>
-            <h1 class="hero__wrap__content__title">
-              <?php echo esc_html($titolo_hero); ?>
-            </h1>
-          <?php endif; ?>
 
-          <?php if ($testo_hero) : ?>
-            <div class="hero__wrap__content__text">
-              <?php echo $testo_hero; ?>
+        <?php if (have_rows('repeatere_hero_about')) : ?>
+          <div class="hero__wrap__content swiperHero">
+            <div class="swiper-wrapper">
+              <?php while (have_rows('repeatere_hero_about')) : the_row();
+                $titolo_hero = get_sub_field('titolo');
+                $sub_titolo_hero = get_sub_field('sottotitolo');
+                $testo_hero = get_sub_field('testo');
+                $cta_hero = get_sub_field('pulsante'); ?>
+                <div class="hero__wrap__content__slide swiper-slide">
+                  <?php if ($titolo_hero) : ?>
+                    <h1 class="hero__wrap__content__title">
+                      <?php echo esc_html($titolo_hero); ?>
+                    </h1>
+                  <?php endif; ?>
+                  <?php if ($sub_titolo_hero) : ?>
+                    <h2 class="hero__wrap__content__subtitle">
+                      <?php echo esc_html($sub_titolo_hero); ?>
+                    </h2>
+                  <?php endif; ?>
+                  <?php if ($testo_hero) : ?>
+                    <div class="hero__wrap__content__text">
+                      <?php echo $testo_hero; ?>
+                    </div>
+                  <?php endif; ?>
+                  <?php if ($cta_hero) : ?>
+                    <a href="<?php echo esc_url($cta_hero['url']); ?>" class="hero__wrap__content__cta primary-btn">
+                      <?php echo esc_html($cta_hero['title']); ?>
+                    </a>
+                  <?php endif; ?>
+                </div>
+              <?php endwhile; ?>
             </div>
-          <?php endif; ?>
-
-          <?php if ($cta_hero) : ?>
-            <a href="<?php echo esc_url($cta_hero['url']); ?>" class="hero__wrap__content__cta primary-btn">
-              <?php echo esc_html($cta_hero['title']); ?>
-            </a>
-          <?php endif; ?>
-
-        </div>
+          </div>
+        <?php endif; ?>
 
         <?php if ($img_hero) : ?>
           <div class="hero__wrap__image">
@@ -257,8 +272,9 @@ get_header(); ?>
 
               <?php // Loop immagini
               while (have_rows('repeater_video_about')) : the_row();
+                $selettore = get_sub_field('selettore_videoimage');
                 $gallery_img = get_sub_field('image');
-                if (!empty($gallery_img) && is_array($gallery_img) && !empty($gallery_img['url'])) : ?>
+                if ($selettore === 'Immagine' && !empty($gallery_img) && is_array($gallery_img) && !empty($gallery_img['url'])) : ?>
                   <div class="gallery__item swiper-slide">
                     <img src="<?php echo esc_url($gallery_img['url']); ?>" alt="<?php echo esc_attr($gallery_img['alt'] ?? ''); ?>">
                   </div>
@@ -270,8 +286,9 @@ get_header(); ?>
 
               // Loop video
               while (have_rows('repeater_video_about')) : the_row();
+                $selettore = get_sub_field('selettore_videoimage');
                 $gallery_video = get_sub_field('video');
-                if (!empty($gallery_video) && strlen(trim($gallery_video)) > 0) :
+                if ($selettore === 'Video' && !empty($gallery_video) && strlen(trim($gallery_video)) > 0) :
                   $embed_url = '';
                   if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)/', $gallery_video, $matches)) {
                     $embed_url = 'https://www.youtube.com/embed/' . $matches[1];
@@ -666,7 +683,7 @@ get_header(); ?>
                   $file_size = size_format($file_scaricabile['filesize'], 0);
                 ?>
                   <a href="<?php echo esc_url($file_scaricabile['url']); ?>" class="scaricabili__wrap__repeater__item__link" download>
-                    
+
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M16 36H32V32H16V36ZM16 28H32V24H16V28ZM12 44C10.9 44 9.95833 43.6083 9.175 42.825C8.39167 42.0417 8 41.1 8 40V8C8 6.9 8.39167 5.95833 9.175 5.175C9.95833 4.39167 10.9 4 12 4H28L40 16V40C40 41.1 39.6083 42.0417 38.825 42.825C38.0417 43.6083 37.1 44 36 44H12ZM26 18V8H12V40H36V18H26Z" fill="black" />
                     </svg>

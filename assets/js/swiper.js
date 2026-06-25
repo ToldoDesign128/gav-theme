@@ -23,12 +23,11 @@ window.addEventListener('load', function () {
             },
         });
     }
-
     // Collaborazioni
     if (document.querySelector('.swiperCollaborazioni')) {
         new Swiper('.swiperCollaborazioni', {
             slidesPerView: 2,
-            spaceBetween: 32,
+            spaceBetween: 48,
             loop: true,
             autoplay: {
                 delay: 2500,
@@ -44,6 +43,7 @@ window.addEventListener('load', function () {
                 },
                 1280: {
                     slidesPerView: 5,
+                    spaceBetween: 64,
                 },
             },
 
@@ -57,7 +57,6 @@ window.addEventListener('load', function () {
             },
         });
     }
-
     // Valori
     if (document.querySelector('.swiperValori')) {
         new Swiper('.swiperValori', {
@@ -65,14 +64,11 @@ window.addEventListener('load', function () {
             spaceBetween: 32,
 
             breakpoints: {
-                768: {
+                1024: {
                     slidesPerView: 2.5,
                 },
-                1024: {
-                    slidesPerView: 3.5,
-                },
                 1280: {
-                    slidesPerView: 4.5,
+                    slidesPerView: 3.5,
                 },
             },
 
@@ -82,7 +78,6 @@ window.addEventListener('load', function () {
             },
         });
     }
-
     // News Slider
     if (document.querySelector('.swiperNews')) {
         new Swiper('.swiperNews', {
@@ -96,7 +91,6 @@ window.addEventListener('load', function () {
             },
         });
     }
-
     // Storia (coverflow gallery)
     if (document.querySelector('.swiperStoria')) {
         new Swiper('.swiperStoria', {
@@ -122,7 +116,6 @@ window.addEventListener('load', function () {
             },
         });
     }
-
     // Obiettivi
     if (document.querySelector('.swiperObiettivi')) {
         new Swiper('.swiperObiettivi', {
@@ -131,12 +124,16 @@ window.addEventListener('load', function () {
             centeredSlides: true,
         });
     }
-
     // Testimonianze
     if (document.querySelector('.swiperTestimonianze')) {
         new Swiper('.swiperTestimonianze', {
             slidesPerView: 1,
             spaceBetween: 32,
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
 
             breakpoints: {
                 768: {
@@ -151,6 +148,29 @@ window.addEventListener('load', function () {
                     spaceBetween: 64,
                 },
             },
+            navigation: {
+                nextEl: '.swiperTestimonianze .swiper-button-next',
+                prevEl: '.swiperTestimonianze .swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiperTestimonianze .swiper-pagination',
+                clickable: true,
+            },
         });
     };
+    // Hero
+    if (document.querySelector('.swiperHero')) {
+        new Swiper('.swiperHero', {
+            slidesPerView: 1,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true,
+            },
+            loop: true,
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+            },
+        });
+    }
 });

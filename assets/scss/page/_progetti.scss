@@ -60,6 +60,7 @@
           align-items: center;
 
           &__image {
+            display: flex;
             width: 100%;
             height: auto;
             aspect-ratio: 16 / 9;
@@ -89,7 +90,7 @@
           }
         }
 
-        &.rosa,
+        &.fucsia,
         &.giallo,
         &.blue,
         &.verde,
@@ -97,7 +98,7 @@
           transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
 
-        &.rosa {
+        &.fucsia {
           background-color: v.$fucsia-300;
 
           @include v.respond-to(xl) {
@@ -141,7 +142,7 @@
               }
             }
 
-            &.rosa {
+            &.fucsia {
               background-color: v.$fucsia-300;
             }
             &.giallo {
@@ -216,20 +217,26 @@
                 }
               }
             }
+
+            img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
           }
-        }
+          }
 
-        .swiper-button-prev,
-        .swiper-button-next {
-          color: v.$black;
-          padding: 12px;
-          background-color: v.$white;
-          border-radius: 10px;
-        }
+          .swiper-button-prev,
+          .swiper-button-next {
+            color: v.$black;
+            padding: 12px;
+            background-color: v.$white;
+            border-radius: 10px;
+          }
 
-        .swiper-pagination {
-          top: auto;
-          bottom: 0;
+          .swiper-pagination {
+            top: auto;
+            bottom: 0;
+          }
         }
       }
     }

@@ -14,29 +14,24 @@
                 <?php
                 $post_type = get_post_type();
 
-                // Custom post type: show link to archive (prefer page title if archive page exists) then title
+                // Custom post type: find the page that uses the corresponding page template
                 if ( $post_type && $post_type !== 'post' ) :
                     $post_type_obj = get_post_type_object( $post_type );
-                    $archive_link = function_exists( 'get_post_type_archive_link' ) ? get_post_type_archive_link( $post_type ) : '';
 
-                    // Try to find a Page that corresponds to the archive path so we can use its title
-                    $archive_page = null;
-                    if ( $archive_link ) {
-                        $path = trim( parse_url( $archive_link, PHP_URL_PATH ), '/' );
-                        if ( $path ) {
-                            $archive_page = get_page_by_path( $path );
-                        }
-                    }
+                    // Look for a page with the template "page-{post_type}.php"
+                    $template_name = 'page-' . $post_type . '.php';
+                    $parent_pages = get_pages( array(
+                        'meta_key'   => '_wp_page_template',
+                        'meta_value' => $template_name,
+                        'number'     => 1,
+                    ) );
 
-                    if ( $archive_page ) :
-                        $archive_title = get_the_title( $archive_page );
-                        $archive_permalink = get_permalink( $archive_page ); ?>
-                        <li><a href="<?php echo esc_url( $archive_permalink ); ?>"><?php echo esc_html( $archive_title ); ?></a></li>
-                    <?php elseif ( $archive_link ) :
-                        $label = ( isset( $post_type_obj->labels->singular_name ) && $post_type_obj->labels->singular_name ) ? $post_type_obj->labels->singular_name : $post_type; ?>
-                        <li><a href="<?php echo esc_url( $archive_link ); ?>"><?php echo esc_html( $label ); ?></a></li>
+                    if ( ! empty( $parent_pages ) ) :
+                        $parent_page = $parent_pages[0]; ?>
+                        <li><a href="<?php echo esc_url( get_permalink( $parent_page ) ); ?>"><?php echo esc_html( get_the_title( $parent_page ) ); ?></a></li>
                     <?php else :
-                        $label = ( isset( $post_type_obj->labels->singular_name ) && $post_type_obj->labels->singular_name ) ? $post_type_obj->labels->singular_name : $post_type; ?>
+                        // Fallback: show the CPT label without link
+                        $label = ( isset( $post_type_obj->labels->name ) && $post_type_obj->labels->name ) ? $post_type_obj->labels->name : $post_type; ?>
                         <li><?php echo esc_html( $label ); ?></li>
                     <?php endif; ?>
 

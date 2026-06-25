@@ -88,7 +88,7 @@
         }
       }
 
-      &.rosa,
+      &.fucsia,
       &.giallo,
       &.blue,
       &.verde,
@@ -96,7 +96,7 @@
         transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
       }
 
-      &.rosa {
+      &.fucsia {
         background-color: v.$fucsia-300;
 
         @include v.respond-to(xl) {
